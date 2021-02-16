@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>Wild Woman Medicine Show Product Manager</title>
+		<style type="text/css">
+			* {
+				box-sizing: border-box;
+			}
+			html, body {
+				margin: 0;
+				background: #222;
+				height: 100%;
+			}
+			html {
+				font-family: sans-serif;
+				color: #EEE;
+			}
+			html, input, button {
+				font-size: 12pt;
+			}
+
+			._layout-left-column {
+				height: 100%;
+				width: 2in;
+				float: left;
+			}
+			._layout-main-column {
+				height: 100%;
+				margin-left: 2in;
+			}
+			._wrapper {
+				height: 100%;
+				overflow: hidden;
+			}
+			._section {
+				height: 100%;
+			}
+
+			nav.left-navigation {
+				height: 100%;
+				background: #444;
+			}
+			nav.left-navigation a {
+				display: block;
+				padding: 1em;
+				color: #EEE;
+				text-decoration: none;
+			}
+			nav.left-navigation hr {
+				border: 0;
+				border-bottom: 1px solid #EEE;
+				margin: 0;
+				padding: 0;
+			}
+
+			.wrapper {
+				margin: 0 auto;
+			}
+			.heading {
+				background: #666;
+				padding: 0.25in;
+			}
+			.content {
+				padding: 0.25in;
+			}
+			form {
+				display: block;
+				width: 100%;
+			}
+			form .row {
+				padding: 0.10in;
+			}
+			form .row:nth-child(1) {
+				background: #666;
+			}
+			form .row label {
+				width: 50%;
+				display: inline-block;
+			}
+			form .row input {
+				width: 50%;
+				display: inline-block;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0;
+				padding: 0;
+				line-height: 1.0em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="_layout-left-column">
+			<nav class="left-navigation">
+				<a href="#_section-dashboard">Dashboard</a>
+				<hr />
+				<a href="#_section-import-products">Import Products</a>
+				<a href="#_section-export-products">Export Products</a>
+			</nav>
+		</div>
+		<div class="_layout-main-column">
+			<div class="_wrapper">
+				<div class="_section" id="_section-dashboard">
+					<h2 class="heading">Dashboard</h2>
+					<div class="content">
+					</div>
+				</div>
+				<div class="_section" id="_section-import-products">
+					<h2 class="heading">Import Products</h2>
+					<div class="content">
+						<form>
+							<div class="row"><label for="input">Input: </label><input type="file" name="input"></div>
+							<div class="row"><label></label><input type="submit" value="Import"></div>
+						</form>
+					</div>
+				</div>
+				<div class="_section" id="_section-export-products">
+					<h2 class="heading">Export Products</h2>
+					<div class="content">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

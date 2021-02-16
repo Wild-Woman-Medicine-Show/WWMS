@@ -1,0 +1,14 @@
+{
+    "name": "wwms-product-manager-app",
+    "version": "0.0.1",
+    "author": "@TinyGiant",
+    "description": "Wild Woman Medicine Show Product Manager",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "devDependencies": {
+        "electron": "^11.2.3",
+        "path": "^0.12.7"
+    }
+}
