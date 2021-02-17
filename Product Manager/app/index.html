@@ -1,21 +1,25 @@
 <html>
 	<head>
 		<title>Wild Woman Medicine Show Product Manager</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./node_modules/mini.css/dist/mini-dark.min.css">
 		<style type="text/css">
 			* {
 				box-sizing: border-box;
+				line-height: 1.25em;
 			}
 			html, body {
 				margin: 0;
-				background: #222;
+				background: #333;
 				height: 100%;
-			}
-			html {
-				font-family: sans-serif;
-				color: #EEE;
 			}
 			html, input, button {
 				font-size: 12pt;
+				margin: 0;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0;
+				padding: 0;
 			}
 
 			._layout-left-column {
@@ -33,11 +37,15 @@
 			}
 			._section {
 				height: 100%;
+				overflow: auto;
 			}
 
 			nav.left-navigation {
+				padding-top: 1in;
 				height: 100%;
-				background: #444;
+				background: #393939;
+				border: 0;
+				margin: 0;
 			}
 			nav.left-navigation a {
 				display: block;
@@ -52,38 +60,13 @@
 				padding: 0;
 			}
 
-			.wrapper {
-				margin: 0 auto;
-			}
 			.heading {
-				background: #666;
+				background: #393939;
 				padding: 0.25in;
+				line-height: .5in;
 			}
 			.content {
 				padding: 0.25in;
-			}
-			form {
-				display: block;
-				width: 100%;
-			}
-			form .row {
-				padding: 0.10in;
-			}
-			form .row:nth-child(1) {
-				background: #666;
-			}
-			form .row label {
-				width: 50%;
-				display: inline-block;
-			}
-			form .row input {
-				width: 50%;
-				display: inline-block;
-			}
-			h1, h2, h3, h4, h5, h6 {
-				margin: 0;
-				padding: 0;
-				line-height: 1.0em;
 			}
 		</style>
 	</head>
@@ -91,7 +74,6 @@
 		<div class="_layout-left-column">
 			<nav class="left-navigation">
 				<a href="#_section-dashboard">Dashboard</a>
-				<hr />
 				<a href="#_section-import-products">Import Products</a>
 				<a href="#_section-export-products">Export Products</a>
 			</nav>
@@ -106,9 +88,54 @@
 				<div class="_section" id="_section-import-products">
 					<h2 class="heading">Import Products</h2>
 					<div class="content">
+						<style type="text/css">
+							#_section-import-products form {
+								background: transparent;
+								margin: 0;
+								border: 0;
+								display: block;
+								width: 100%;
+								padding: 0;
+							}
+							:root {
+								--table-border-color: transparent;
+							}
+							#_section-import-products form table {
+								border: 0;
+								padding: 0;
+							}
+							#_section-import-products form tr {
+								background: transparent;
+								border: 0;
+								margin: 0;
+								padding: 0;
+							}
+							#_section-import-products form td {
+								background: transparent;
+								padding: 0.15in;
+								clear: both;
+							}
+							#_section-import-products form td:nth-child(2) {
+								text-align: right;
+							}
+							#_section-import-products form tr:nth-child(1) {
+								background: #434343;
+							}
+							#_section-import-products form tr:nth-child(2) {
+								background: #393939;
+							}
+						</style>
 						<form>
-							<div class="row"><label for="input">Input: </label><input type="file" name="input"></div>
-							<div class="row"><label></label><input type="submit" value="Import"></div>
+							<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+								<tr>
+									<td style="width: 1.5in"><label for="input">Input: </label></td>
+									<td><input type="file" name="input" style="width: 100%"></td>
+								</tr>
+								<tr>
+									<td style="display: none"></td>
+									<td><button>Import</button></td>
+								</tr>
+							</table>
 						</form>
 					</div>
 				</div>
