@@ -8,8 +8,9 @@
         "start": "electron ."
     },
     "devDependencies": {
+        "csv": "^5.3.2",
         "electron": "^11.2.3",
-        "mini.css": "^3.0.1",
+        "mongoose": "^5.11.17",
         "path": "^0.12.7"
     }
 }

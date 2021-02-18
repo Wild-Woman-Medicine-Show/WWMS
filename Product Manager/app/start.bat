@@ -1,0 +1,2 @@
+npx electron .
+exit
