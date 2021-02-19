@@ -1,0 +1,48 @@
+._heading {
+	background: var(--bg-color-grey-04);
+	padding: 0.25in;
+	line-height: .25in;
+}
+._content {
+	padding: 0.25in;
+}
+._content form {
+	margin: 0;
+	border: 0;
+	width: 100%;
+	padding: 0;
+}
+._content table, ._content tr {
+	width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+._content td {
+	vertical-align: top;
+	padding: 0.15in;
+	white-space: nowrap;
+}
+._content tr:nth-child(odd) {
+	background: var(--bg-color-grey-04);
+}
+._content tr:nth-child(even) {
+	background: var(--bg-color-grey-03);
+}
+._content {
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+#preview-table {
+	display: flex;
+	overflow: auto;
+}
+#progress-indicator td {
+	display: block;
+	width: 0%;
+	background: var(--bg-color-green-05);
+	padding: 0;
+	height: 0.25in;
+}

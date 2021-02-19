@@ -1,0 +1,105 @@
+:root {
+	--bg-color-grey-01: rgba( 10, 10, 10,1);
+	--bg-color-grey-02: rgba( 20, 20, 20,1);
+	--bg-color-grey-03: rgba( 30, 30, 30,1);
+	--bg-color-grey-04: rgba( 40, 40, 40,1);
+	--bg-color-grey-05: rgba( 50, 50, 50,1);
+	--bg-color-grey-06: rgba( 60, 60, 60,1);
+	--bg-color-grey-07: rgba( 70, 70, 70,1);
+	--bg-color-grey-08: rgba( 80, 80, 80,1);
+	--bg-color-grey-09: rgba( 90, 90, 90,1);
+	--bg-color-grey-10: rgba(100,100,100,1);
+	--bg-color-red-01: rgba(255,0,0,0.5);
+	--bg-color-red-02: rgba(255,25,0,0.5);
+	--bg-color-red-03: rgba(255,50,0,0.5);
+	--bg-color-red-04: rgba(255,75,0,0.5);
+	--bg-color-red-05: rgba(255,100,0,0.5);
+	--bg-color-orange-01: rgba(255,150,0,0.5);
+	--bg-color-orange-02: rgba(255,175,0,0.5);
+	--bg-color-orange-03: rgba(255,200,0,0.5);
+	--bg-color-orange-04: rgba(255,225,0,0.5);
+	--bg-color-orange-05: rgba(255,255,0,0.5);
+	--bg-color-yellow-01: rgba(225,255,0,0.5);
+	--bg-color-yellow-02: rgba(200,255,0,0.5);
+	--bg-color-yellow-03: rgba(175,255,0,0.5);
+	--bg-color-yellow-04: rgba(150,255,0,0.5);
+	--bg-color-yellow-05: rgba(125,255,0,0.5);
+	--bg-color-green-01: rgba(0,255,200,0.5);
+	--bg-color-green-02: rgba(0,255,175,0.5);
+	--bg-color-green-03: rgba(0,255,150,0.5);
+	--bg-color-green-04: rgba(0,255,125,0.5);
+	--bg-color-green-05: rgba(0,255,100,0.5);
+}
+
+* {
+	box-sizing: border-box;
+	line-height: 1.25em;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-color-grey-05);
+}
+::-webkit-scrollbar-track {
+	background: var(--bg-color-grey-06);
+}
+html, body {
+	margin: 0;
+	background: var(--bg-color-grey-02);
+	height: 100%;
+}
+html, input, button {
+	font-family: sans-serif;
+	color: #EEE;
+	font-size: 12pt;
+	margin: 0;
+}
+input, button {
+	background: var(--bg-color-grey-06);
+	border: 0;
+	padding: 0.10in 0.20in;
+	display: inline-block;
+}
+input:not([disabled]), button:not([disabled]) {
+	cursor: pointer;
+}
+input:disabled, button:disabled {
+	background: var(--bg-color-grey-05);
+	color: #AAA;
+}
+input[type="text"] {
+	background: var(--bg-color-grey-05);
+}
+input[type="text"]:disabled {
+	background: var(--bg-color-grey-04);
+	color: #AAA;
+}
+input:not([type="text"]):not([disabled]):hover, input:not([type="text"])[active], button:not([disabled]):hover, button[active] {
+	background: var(--bg-color-grey-07);
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+	margin-bottom: 0.15in;
+}
+*:focus {
+    outline: none;
+}
+[hidden] {
+	display: none;
+}
+
+.file-wrapper #file-input {
+	padding: 0;
+}
+.file-wrapper {
+	display: flex;
+}
+.file-wrapper #file-path {
+	flex: 1 0 auto;
+}
+._section {
+	display: flex;
+	flex-direction: column;
+}

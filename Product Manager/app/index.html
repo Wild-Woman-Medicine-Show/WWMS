@@ -2,576 +2,99 @@
 	<head>
 		<title>Wild Woman Medicine Show Product Manager</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style type="text/css">
-			:root {
-				--bg-color-grey-01: rgba( 10, 10, 10,1);
-				--bg-color-grey-02: rgba( 20, 20, 20,1);
-				--bg-color-grey-03: rgba( 30, 30, 30,1);
-				--bg-color-grey-04: rgba( 40, 40, 40,1);
-				--bg-color-grey-05: rgba( 50, 50, 50,1);
-				--bg-color-grey-06: rgba( 60, 60, 60,1);
-				--bg-color-grey-07: rgba( 70, 70, 70,1);
-				--bg-color-grey-08: rgba( 80, 80, 80,1);
-				--bg-color-grey-09: rgba( 90, 90, 90,1);
-				--bg-color-grey-10: rgba(100,100,100,1);
-				--bg-color-red-01: rgba(255,0,0,0.5);
-				--bg-color-red-02: rgba(255,25,0,0.5);
-				--bg-color-red-03: rgba(255,50,0,0.5);
-				--bg-color-red-04: rgba(255,75,0,0.5);
-				--bg-color-red-05: rgba(255,100,0,0.5);
-				--bg-color-orange-01: rgba(255,150,0,0.5);
-				--bg-color-orange-02: rgba(255,175,0,0.5);
-				--bg-color-orange-03: rgba(255,200,0,0.5);
-				--bg-color-orange-04: rgba(255,225,0,0.5);
-				--bg-color-orange-05: rgba(255,255,0,0.5);
-				--bg-color-yellow-01: rgba(225,255,0,0.5);
-				--bg-color-yellow-02: rgba(200,255,0,0.5);
-				--bg-color-yellow-03: rgba(175,255,0,0.5);
-				--bg-color-yellow-04: rgba(150,255,0,0.5);
-				--bg-color-yellow-05: rgba(125,255,0,0.5);
-				--bg-color-green-01: rgba(0,255,200,0.5);
-				--bg-color-green-02: rgba(0,255,175,0.5);
-				--bg-color-green-03: rgba(0,255,150,0.5);
-				--bg-color-green-04: rgba(0,255,125,0.5);
-				--bg-color-green-05: rgba(0,255,100,0.5);
-			}
-
-			* {
-				box-sizing: border-box;
-				line-height: 1.25em;
-			}
-			html, body {
-				margin: 0;
-				background: var(--bg-color-grey-02);
-				height: 100%;
-			}
-			html, input, button {
-				font-family: sans-serif;
-				color: #EEE;
-				font-size: 12pt;
-				margin: 0;
-			}
-			input, button {
-				background: var(--bg-color-grey-06);
-				border: 0;
-				padding: 0.10in 0.20in;
-				display: inline-block;
-			}
-			input:not([type="text"]):hover, button:hover {
-				background: var(--bg-color-grey-07);
-			}
-			h1, h2, h3, h4, h5, h6 {
-				margin: 0;
-				padding: 0;
-			}
-			p {
-				margin: 0;
-				margin-bottom: 0.15in;
-			}
-			input:focus,
-			select:focus,
-			textarea:focus,
-			button:focus {
-			    outline: none;
-			}
-			[hidden] {
-				display: none;
-			}
-			._layout-left-column {
-				height: 100%;
-				width: 2in;
-				float: left;
-			}
-			._layout-main-column {
-				height: 100%;
-				margin-left: 2in;
-			}
-			._wrapper {
-				height: 100%;
-				overflow: hidden;
-			}
-			._section {
-				height: 100%;
-				overflow: auto;
-			}
-
-			nav.left-navigation {
-				padding-top: 1in;
-				height: 100%;
-				background: var(--bg-color-grey-04);
-				border: 0;
-				margin: 0;
-			}
-			nav.left-navigation a {
-				display: block;
-				padding: 1em;
-				color: #EEE;
-				text-decoration: none;
-			}
-			nav.left-navigation hr {
-				border: 0;
-				border-bottom: 1px solid #EEE;
-				margin: 0;
-				padding: 0;
-			}
-
-			.heading {
-				background: var(--bg-color-grey-04);
-				padding: 0.25in;
-				line-height: .5in;
-			}
-			.content {
-				padding: 0.25in;
-			}
-		</style>
+		<link rel="stylesheet" href="./main.css">
+		<link rel="stylesheet" href="./layout.css">
 	</head>
-	<body class="uk-light">
+	<body>
 		<div class="_layout-left-column">
-			<nav class="left-navigation">
-				<a href="#_section-dashboard">Dashboard</a>
-				<a href="#_section-import-blends">Import Blends</a>
-				<a href="#_section-import-lines">Import Lines</a>
-				<a href="#_section-edit-blends">Edit Blends</a>
-				<a href="#_section-edit-lines">Edit Lines</a>
-				<a href="#_section-export-blends">Export Blends</a>
-				<a href="#_section-export-lines">Export Lines</a>
-				<a href="#_section-export-shopify">Export For Shopify</a>
+			<nav id="_nav-left">
 			</nav>
 		</div>
 		<div class="_layout-main-column">
-			<div class="_wrapper">
-				<div class="_section" id="_section-dashboard">
-					<h2 class="heading">Dashboard</h2>
-					<div class="content">
-					</div>
-				</div>
-				<div class="_section" id="_section-import-blends">
-					<h2 class="heading">Import Blends</h2>
-					<div class="content">
-						<style type="text/css">
-							#_section-import-blends form {
-								margin: 0;
-								border: 0;
-								width: 100%;
-								padding: 0;
-							}
-							#_section-import-blends form table {
-								width: 100%;
-								border: 0;
-								padding: 0;
-							}
-							#_section-import-blends form tr {
-								border: 0;
-								margin: 0;
-								padding: 0;
-							}
-							#_section-import-blends form td {
-								vertical-align: top;
-								background: transparent;
-								padding: 0.15in;
-								clear: both;
-							}
-							#_section-import-blends form tr:nth-child(odd) {
-								background: var(--bg-color-grey-04);
-							}
-							#_section-import-blends form tr:nth-child(even) {
-								background: var(--bg-color-grey-03);
-							}
-							#_section-import-blends #import-blends-progress td {
-								display: block;
-								width: 0%;
-								background: var(--bg-color-green-05);
-								padding: 0;
-								height: 0.25in;
-							}
-						</style>
-						<form id="import-blends">
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody>
-									<tr>
-										<td>
-											<div class="file-wrapper"
-												><input type="text" class="file-path" readonly
-												><button class="file-open">Browse Files</button
-												><input type="file" name="input" style="width: 0; visibility: hidden"
-											></div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
-						<form id="confirm-import-blends" hidden>
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody id="import-blends-result">
-								</tbody>
-							</table>
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody>
-									<tr><td style="text-align: right; background-color: var(--bg-color-orange-02); padding: 0.15in;">
-										This operation will overwrite any existing records whose titles match those in the table above
-									</td></tr>
-									<tr><td style="text-align: right">
-										<button id="import-confirm-button">Import</button>
-										<button id="import-reset-button" style="background-color: var(--bg-color-red-02)">Reset</button>
-									</td></tr>
-									<tr id="import-blends-progress"><td></td></tr>
-								</tbody>
-							</table>
-						</form>
-						<script type="text/javascript">
-							(function() {
-								const parse = require('csv-parse')
-								const mongoose = require('mongoose');
-								const { Blend } = require('./schemas.js')
-								const reader = new FileReader();
-
-								const import_form = document.querySelector('form#import-blends')
-								const confirm_form = document.querySelector('form#confirm-import-blends')
-								const files = import_form.querySelector('input[name="input"]')
-								const table = confirm_form.querySelector('#import-blends-result')
-								const confirm_button = confirm_form.querySelector('#import-confirm-button')
-								const reset_button = confirm_form.querySelector('#import-reset-button')
-
-								let result = []
-
-								function reset_form() {
-									import_form.reset()
-								}
-								function reset_results() {
-									confirm_form.setAttribute('hidden', true)
-									table.innerHTML = ''
-								}
-
-								function write_result() {
-									reset_results()
-									const headers = Object.keys(result[0])
-									const header_row = table.insertRow(-1)
-
-									for(let header of headers) {
-										Object.assign(header_row.insertCell(-1), { textContent: header })
-									}
-
-									for(let row of result) {
-										const table_row = table.insertRow(-1)
-										for(let cell of Object.values(row)) {
-											Object.assign(table_row.insertCell(-1), { textContent: cell, contentEditable: true })
-										}
-									}
-
-									confirm_form.removeAttribute('hidden')
-								}
-
-								const progress_indicator = (function(){
-									const progress_wrapper = confirm_form.querySelector('#import-blends-progress')
-									const progress_element = progress_wrapper.querySelector('td')
-
-									return {
-										set progress(value) {
-											progress_element.style.width = value + '%'
-										}
-									}
-								})()
-
-								async function write_db() {
-									mongoose.connect('mongodb://localhost/wwms_pm', { useNewUrlParser: true, useUnifiedTopology: true });
-									await new Promise(resolve => mongoose.connection.once('open', resolve))
-
-									for(let ai = 0, al = result.length; ai < al; ++ai) {
-										progress_indicator.progress = parseInt((ai + 1) * 100 / al)
-										const record = result[ai]
-										const existing = await Blend.findOne({ Title: record.Title }).exec()
-										if(existing) {
-											existing.overwrite(record)
-										} else {
-											new Blend(record).save(error => {
-												if(error) throw error
-											})
-										}
-									}
-
-									mongoose.connection.close()
-
-									progress_indicator.progress = 0
-								}
-
-								reader.addEventListener('load', e => {
-									parse(e.target.result, { 'columns': true }, (error, output) => {
-										if(error) throw error;
-										result = output
-										write_result()
-									})
-								})
-
-								import_form.addEventListener('submit', e => {
-									e.preventDefault()
-									reader.readAsText(files.files[0])
-								})
-
-								files.addEventListener('change', e => {
-									e.preventDefault()
-									reader.readAsText(files.files[0])
-								})
-
-								confirm_form.addEventListener('submit', e => {
-									e.preventDefault()
-									write_db()
-								})
-
-								reset_button.addEventListener('click', e => {
-									e.preventDefault()
-									reset_form()
-									reset_results()
-								})
-							})()
-						</script>
-					</div>
-				</div>
-				<div class="_section" id="_section-import-lines">
-					<h2 class="heading">Import Lines</h2>
-					<div class="content">
-						<style type="text/css">
-							#_section-import-lines form {
-								margin: 0;
-								border: 0;
-								width: 100%;
-								padding: 0;
-							}
-							#_section-import-lines form table {
-								width: 100%;
-								border: 0;
-								padding: 0;
-							}
-							#_section-import-lines form tr {
-								border: 0;
-								margin: 0;
-								padding: 0;
-							}
-							#_section-import-lines form td {
-								vertical-align: top;
-								background: transparent;
-								padding: 0.15in;
-								clear: both;
-							}
-							#_section-import-lines form tr:nth-child(odd) {
-								background: var(--bg-color-grey-04);
-							}
-							#_section-import-lines form tr:nth-child(even) {
-								background: var(--bg-color-grey-03);
-							}
-							#_section-import-lines #import-lines-progress td {
-								display: block;
-								width: 0%;
-								background: var(--bg-color-green-05);
-								padding: 0;
-								height: 0.25in;
-							}
-						</style>
-						<form id="import-lines">
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody>
-									<tr>
-										<td>
-											<div class="file-wrapper"
-												><input type="text" class="file-path" readonly
-												><button class="file-open">Browse Files</button
-												><input type="file" name="input" style="width: 0; visibility: hidden"
-											></div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
-						<form id="confirm-import-lines" hidden>
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody id="import-lines-result">
-								</tbody>
-							</table>
-							<table cellpadding="0" cellspacing="0" border="0">
-								<tbody>
-									<tr><td style="text-align: right; background-color: var(--bg-color-orange-02); padding: 0.15in;">
-										This operation will overwrite any existing records whose titles match those in the table above
-									</td></tr>
-									<tr><td style="text-align: right">
-										<button id="import-confirm-button">Import</button>
-										<button id="import-reset-button" style="background-color: var(--bg-color-red-02)">Reset</button>
-									</td></tr>
-									<tr id="import-lines-progress"><td></td></tr>
-								</tbody>
-							</table>
-						</form>
-						<script type="text/javascript">
-							(function() {
-								const parse = require('csv-parse')
-								const mongoose = require('mongoose');
-								const { Blend } = require('./schemas.js')
-								const reader = new FileReader();
-
-								const import_form = document.querySelector('form#import-lines')
-								const confirm_form = document.querySelector('form#confirm-import-lines')
-								const files = import_form.querySelector('input[name="input"]')
-								const table = confirm_form.querySelector('#import-lines-result')
-								const confirm_button = confirm_form.querySelector('#import-confirm-button')
-								const reset_button = confirm_form.querySelector('#import-reset-button')
-
-								let result = []
-
-								function reset_form() {
-									import_form.reset()
-								}
-								function reset_results() {
-									confirm_form.setAttribute('hidden', true)
-									table.innerHTML = ''
-								}
-
-								function write_result() {
-									reset_results()
-									const headers = Object.keys(result[0])
-									const header_row = table.insertRow(-1)
-
-									for(let header of headers) {
-										Object.assign(header_row.insertCell(-1), { textContent: header })
-									}
-
-									for(let row of result) {
-										const table_row = table.insertRow(-1)
-										for(let cell of Object.values(row)) {
-											Object.assign(table_row.insertCell(-1), { textContent: cell, contentEditable: true })
-										}
-									}
-
-									confirm_form.removeAttribute('hidden')
-								}
-
-								const progress_indicator = (function(){
-									const progress_wrapper = confirm_form.querySelector('#import-lines-progress')
-									const progress_element = progress_wrapper.querySelector('td')
-
-									return {
-										set progress(value) {
-											progress_element.style.width = value + '%'
-										}
-									}
-								})()
-
-								async function write_db() {
-									mongoose.connect('mongodb://localhost/wwms_pm', { useNewUrlParser: true, useUnifiedTopology: true });
-									await new Promise(resolve => mongoose.connection.once('open', resolve))
-
-									for(let ai = 0, al = result.length; ai < al; ++ai) {
-										progress_indicator.progress = parseInt((ai + 1) * 100 / al)
-										const record = result[ai]
-										const existing = await Blend.findOne({ Title: record.Title }).exec()
-										if(existing) {
-											existing.overwrite(record)
-										} else {
-											new Blend(record).save(error => {
-												if(error) throw error
-											})
-										}
-									}
-
-									mongoose.connection.close()
-
-									progress_indicator.progress = 0
-								}
-
-								reader.addEventListener('load', e => {
-									parse(e.target.result, { 'columns': true }, (error, output) => {
-										if(error) throw error;
-										result = output
-										write_result()
-									})
-								})
-
-								import_form.addEventListener('submit', e => {
-									e.preventDefault()
-									reader.readAsText(files.files[0])
-								})
-
-								files.addEventListener('change', e => {
-									e.preventDefault()
-									reader.readAsText(files.files[0])
-								})
-
-								confirm_form.addEventListener('submit', e => {
-									e.preventDefault()
-									write_db()
-								})
-
-								reset_button.addEventListener('click', e => {
-									e.preventDefault()
-									reset_form()
-									reset_results()
-								})
-							})()
-						</script>
-					</div>
-				</div>
-				<div class="_section" id="_section-edit-blends">
-					<h2 class="heading">Edit Blends</h2>
-					<div class="content">
-					</div>
-				</div>
-				<div class="_section" id="_section-edit-lines">
-					<h2 class="heading">Edit Lines</h2>
-					<div class="content">
-					</div>
-				</div>
-				<div class="_section" id="_section-export-blends">
-					<h2 class="heading">Export Blends</h2>
-					<div class="content">
-					</div>
-				</div>
-				<div class="_section" id="_section-export-lines">
-					<h2 class="heading">Export Lines</h2>
-					<div class="content">
-					</div>
-				</div>
-				<div class="_section" id="_section-export-shopify">
-					<h2 class="heading">Export For Shopify</h2>
-					<div class="content">
-					</div>
-				</div>
+			<div id="_wrapper">
 			</div>
 		</div>
-		<style type="text/css">
-			.file-wrapper input[type="file"] {
-				padding: 0;
-			}
-			.file-wrapper {
-				display: flex;
-			}
-			.file-wrapper .file-path {
-				flex: 1 0 auto;
-			}
-		</style>
 		<script type="text/javascript">
 			(function(){
-				const wrappers = document.querySelectorAll(".file-wrapper")
-				for(let wrapper of wrappers) {
-					const file = { path:null, open:null, target:null }
-					for(let child of wrapper.children) {
-						if(file.path && file.open && file.target) break
-						if(child.classList.contains('file-path')) file.path = child
-						if(child.classList.contains('file-open')) file.open = child
-						if(child.getAttribute('type') === 'file') file.target = child
-					}
-	                
-	                file.path.addEventListener('click', e => {
-	                	if(file.path.value === "") file.target.click()
-	                })
-	                file.path.addEventListener('dblclick', e => {
-	                	file.target.click()
-	                })
-	                file.open.addEventListener('click', e => {
-                        e.preventDefault()
-                        file.target.click()
-	                })
-	                file.target.addEventListener('change', e => {
-                    	file.path.value = file.target.files[0].path
-                    })
+				const { root, sections } = require('./sections.json')
+				const wrapper = document.querySelector('#_wrapper')
+				const navigation = document.querySelector('#_nav-left')
+
+				for(let filename of sections) {
+					const section = require(`${root}/${filename}`)
+					const flatname = section.title.replace(/[^\w\d\s]/g, '').replace(/\s+/g, '-').toLowerCase()
+					section.nodes = { wrapper, navigation }
+
+					section.nodes.anchor = document.createElement('a')
+					section.nodes.anchor.href = `#_section-${flatname}`
+					section.nodes.anchor.textContent = section.title
+
+					section.nodes.container = document.createElement('div')
+					section.nodes.container.classList.add('_section')
+					section.nodes.container.id = `_section-${flatname}`
+
+					section.nodes.shadow = section.nodes.container.attachShadow({ mode: 'open' })
+
+					section.nodes.heading = document.createElement('h2')
+					section.nodes.heading.classList.add('_heading')
+					section.nodes.heading.textContent = section.title
+					section.nodes.shadow.appendChild(section.nodes.heading)
+
+					section.nodes.content = document.createElement('div')
+					section.nodes.content.classList.add('_content')
+					section.nodes.content.innerHTML = section.html 
+					section.nodes.shadow.appendChild(section.nodes.content)
+
+					section.nodes.sectioncss = document.createElement('style')
+					section.nodes.sectioncss.textContent = section.css
+					section.nodes.shadow.appendChild(section.nodes.sectioncss)
+
+					section.nodes.maincss = document.createElement('link')
+					section.nodes.maincss.rel = 'stylesheet'
+					section.nodes.maincss.href = './main.css'
+					section.nodes.shadow.appendChild(section.nodes.maincss)
+
+					section.nodes.contentcss = document.createElement('link')
+					section.nodes.contentcss.rel = 'stylesheet'
+					section.nodes.contentcss.href = './content.css'
+					section.nodes.shadow.appendChild(section.nodes.contentcss)
+
+					section.nodes.wrapper.appendChild(section.nodes.container)
+					section.nodes.navigation.appendChild(section.nodes.anchor)
+
+					for(let script of section.scripts) script(section)
 				}
-			})()
+			})();
+
+			(function(){
+				const sections = document.querySelectorAll('._section')
+				for(let section of sections) {
+					const wrappers = section.shadowRoot.querySelectorAll('.file-wrapper')
+					for(let wrapper of wrappers) {
+						const file = { path:null, open:null, target:null }
+						for(let child of wrapper.children) {
+							if(file.path && file.open && file.target) break
+							if(child.id === 'file-path') file.path = child
+							if(child.id === 'file-open') file.open = child
+							if(child.id === 'file-input') file.target = child
+						}
+		                
+		                file.path.addEventListener('click', e => {
+		                	if(file.path.value === "") file.target.click()
+		                })
+		                file.path.addEventListener('dblclick', e => {
+		                	file.target.click()
+		                })
+		                file.open.addEventListener('click', e => {
+	                        e.preventDefault()
+	                        file.target.click()
+		                })
+		                file.target.addEventListener('change', e => {
+	                    	file.path.value = file.target.files[0].path
+	                    })
+					}
+				}
+			})();
 		</script>
 	</body>
 </html>

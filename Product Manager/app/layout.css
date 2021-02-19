@@ -1,0 +1,34 @@
+._layout-left-column {
+	height: 100%;
+	width: 1.5in;
+	float: left;
+}
+._layout-main-column {
+	height: 100%;
+	margin-left: 1.5in;
+}
+#_wrapper {
+	height: 100%;
+	overflow: hidden;
+}
+._section {
+	height: 100%;
+	overflow: auto;
+}
+
+nav#_nav-left {
+	padding-top: .75in;
+	height: 100%;
+	background: var(--bg-color-grey-04);
+	border: 0;
+	margin: 0;
+}
+nav#_nav-left a {
+	display: block;
+	padding: 1em;
+	color: #EEE;
+	text-decoration: none;
+}
+nav#_nav-left a:hover {
+	background: var(--bg-color-grey-05);
+}
