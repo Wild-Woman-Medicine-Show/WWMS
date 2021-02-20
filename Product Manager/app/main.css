@@ -35,12 +35,6 @@
 	box-sizing: border-box;
 	line-height: 1.25em;
 }
-::-webkit-scrollbar-thumb {
-    background: var(--bg-color-grey-05);
-}
-::-webkit-scrollbar-track {
-	background: var(--bg-color-grey-06);
-}
 html, body {
 	margin: 0;
 	background: var(--bg-color-grey-02);
@@ -88,18 +82,4 @@ p {
 }
 [hidden] {
 	display: none;
-}
-
-.file-wrapper #file-input {
-	padding: 0;
-}
-.file-wrapper {
-	display: flex;
-}
-.file-wrapper #file-path {
-	flex: 1 0 auto;
-}
-._section {
-	display: flex;
-	flex-direction: column;
 }

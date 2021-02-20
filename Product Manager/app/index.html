@@ -3,98 +3,14 @@
 		<title>Wild Woman Medicine Show Product Manager</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./main.css">
-		<link rel="stylesheet" href="./layout.css">
+		<link rel="stylesheet" href="./content.css">
 	</head>
 	<body>
-		<div class="_layout-left-column">
-			<nav id="_nav-left">
-			</nav>
-		</div>
-		<div class="_layout-main-column">
-			<div id="_wrapper">
-			</div>
-		</div>
 		<script type="text/javascript">
-			(function(){
-				const { root, sections } = require('./sections.json')
-				const wrapper = document.querySelector('#_wrapper')
-				const navigation = document.querySelector('#_nav-left')
-
-				for(let filename of sections) {
-					const section = require(`${root}/${filename}`)
-					const flatname = section.title.replace(/[^\w\d\s]/g, '').replace(/\s+/g, '-').toLowerCase()
-					section.nodes = { wrapper, navigation }
-
-					section.nodes.anchor = document.createElement('a')
-					section.nodes.anchor.href = `#_section-${flatname}`
-					section.nodes.anchor.textContent = section.title
-
-					section.nodes.container = document.createElement('div')
-					section.nodes.container.classList.add('_section')
-					section.nodes.container.id = `_section-${flatname}`
-
-					section.nodes.shadow = section.nodes.container.attachShadow({ mode: 'open' })
-
-					section.nodes.heading = document.createElement('h2')
-					section.nodes.heading.classList.add('_heading')
-					section.nodes.heading.textContent = section.title
-					section.nodes.shadow.appendChild(section.nodes.heading)
-
-					section.nodes.content = document.createElement('div')
-					section.nodes.content.classList.add('_content')
-					section.nodes.content.innerHTML = section.html 
-					section.nodes.shadow.appendChild(section.nodes.content)
-
-					section.nodes.sectioncss = document.createElement('style')
-					section.nodes.sectioncss.textContent = section.css
-					section.nodes.shadow.appendChild(section.nodes.sectioncss)
-
-					section.nodes.maincss = document.createElement('link')
-					section.nodes.maincss.rel = 'stylesheet'
-					section.nodes.maincss.href = './main.css'
-					section.nodes.shadow.appendChild(section.nodes.maincss)
-
-					section.nodes.contentcss = document.createElement('link')
-					section.nodes.contentcss.rel = 'stylesheet'
-					section.nodes.contentcss.href = './content.css'
-					section.nodes.shadow.appendChild(section.nodes.contentcss)
-
-					section.nodes.wrapper.appendChild(section.nodes.container)
-					section.nodes.navigation.appendChild(section.nodes.anchor)
-
-					for(let script of section.scripts) script(section)
-				}
-			})();
-
-			(function(){
-				const sections = document.querySelectorAll('._section')
-				for(let section of sections) {
-					const wrappers = section.shadowRoot.querySelectorAll('.file-wrapper')
-					for(let wrapper of wrappers) {
-						const file = { path:null, open:null, target:null }
-						for(let child of wrapper.children) {
-							if(file.path && file.open && file.target) break
-							if(child.id === 'file-path') file.path = child
-							if(child.id === 'file-open') file.open = child
-							if(child.id === 'file-input') file.target = child
-						}
-		                
-		                file.path.addEventListener('click', e => {
-		                	if(file.path.value === "") file.target.click()
-		                })
-		                file.path.addEventListener('dblclick', e => {
-		                	file.target.click()
-		                })
-		                file.open.addEventListener('click', e => {
-	                        e.preventDefault()
-	                        file.target.click()
-		                })
-		                file.target.addEventListener('change', e => {
-	                    	file.path.value = file.target.files[0].path
-	                    })
-					}
-				}
-			})();
+			;(() => {
+				const Product_Manager = require('./classes/Product_manager.js')
+				const pm = new Product_Manager(document.currentScript.parentNode)
+			})()
 		</script>
 	</body>
 </html>

@@ -1,10 +1,25 @@
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+*::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-corner {
+	background: var(--bg-color-grey-04);
+}
+*::-webkit-scrollbar-thumb {
+	background: var(--bg-color-grey-06);
+}
 ._heading {
 	background: var(--bg-color-grey-04);
-	padding: 0.25in;
-	line-height: .25in;
+	padding: .15in .25in;
 }
 ._content {
-	padding: 0.25in;
+	flex: 1 1 auto;
 }
 ._content form {
 	margin: 0;
@@ -45,4 +60,13 @@
 	background: var(--bg-color-green-05);
 	padding: 0;
 	height: 0.25in;
+}
+.file-wrapper input[type="file"] {
+	padding: 0;
+}
+.file-wrapper {
+	display: flex;
+}
+.file-wrapper #file-path {
+	flex: 1 0 auto;
 }
