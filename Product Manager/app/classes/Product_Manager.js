@@ -497,8 +497,6 @@ module.exports = class Product_Manager {
 				}
 			}
 		}		
-
-		await this.#mongoose.connection.close()
 	}
 
 	async preview_data() {
