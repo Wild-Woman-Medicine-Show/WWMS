@@ -235,18 +235,22 @@ module.exports = class Product_Manager {
 			}
 
 			confirm_select.confirm.addEventListener('click', async e => {
-				const data = this.#data
-				const model = this.#model
-				const processed = this.process_data()
+				if(this.#action === 'Import' || !/Shopify/.test(this.#model)) {
+					const data = this.#data
+					const model = this.#model
+					const processed = this.process_data()
 
-				for(const model in processed) {
+					for(const model in processed) {
+						this.#model = model
+						this.#data = processed[model]
+						await this.save_data()
+					}
+
+					this.#data = data
 					this.#model = model
-					this.#data = processed[model]
-					await this.save_data()
+				} else {
+					this.export_data()
 				}
-
-				this.#data = data
-				this.#model = model
 			})
 
 			confirm_select.reset.addEventListener('click', e => {
@@ -433,21 +437,33 @@ module.exports = class Product_Manager {
 	}
 
 	async select_data() {
-		await this.#mongoose.connect();
-
 		if(this.#model !== 'Shopify') {
+			await this.#mongoose.connect()
+
 			this.#data = await this.#models[this.#model].model.find(this.#query)
+
+			await this.#mongoose.connection.close()
 		} else {
 			this.#model = 'Shopify_Export'
 			this.#data = []
+
+			await this.#mongoose.connect()
+
 			const blends = await this.#models.Blend.model.find(this.#query)
 			const products = await this.#models.Product.model.find(this.#query)
+
+			await this.#mongoose.connection.close()
 
 			const models = {}
 
 			for(const Product of products) {
 				models.Product = Product
+
+				await this.#mongoose.connect()
+
 				const variants = await this.#models.Variant.model.find(Object.assign({}, this.#query, { Handle: models.Product.Handle }))
+
+				this.#mongoose.connection.close()
 
 				for(const Blend of blends) {
 					models.Blend = Blend
