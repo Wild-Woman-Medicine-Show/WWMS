@@ -201,6 +201,7 @@ td {
 	flex: 1 1 auto;
 	display: flex;
 	overflow: auto;
+	padding: 0;
 }
 #preview td {
 }

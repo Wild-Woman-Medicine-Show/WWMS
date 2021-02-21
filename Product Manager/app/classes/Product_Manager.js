@@ -2,7 +2,8 @@ module.exports = class Product_Manager {
 	#electron = require('electron')
 	#mongoose = null
 	#models = require('../schemas.js')
-	#parse = require('csv-parse')
+	#csv_parse = require('csv-parse')
+	#csv_stringify = require('csv-stringify')
 	#reader = null
 	#model = ''
 	#models_disabled = []
@@ -256,7 +257,7 @@ module.exports = class Product_Manager {
 
 			return confirm_select
 		})()
-		this.#nodes.progress = (() => {
+		this.#nodes.progress           = (() => {
 			// Progress Indicator
 			const progress = {}
 
@@ -288,13 +289,12 @@ module.exports = class Product_Manager {
 
 			return mongoose
 		})()
-
-		this.#reader                   = (() => { 
+		this.#reader                   = (() => {
 			// File Reader
 			const reader = new FileReader()
 
 			reader.addEventListener('load', e => {
-				this.#parse(e.target.result, { 'columns': true }, (error, result) => {
+				this.#csv_parse(e.target.result, { 'columns': true }, (error, result) => {
 					this.reset_preview()
 
 					if(error) throw error;
@@ -365,11 +365,9 @@ module.exports = class Product_Manager {
 	}
 	set action(action) {
 		if(this.#actions.includes(action)) {
-			this.reset_preview()
-
 			const is_change = action !== this.#action
 
-			if(this.#action !== action) {
+			if(is_change && action !== 'Export') {
 				if(this.#action === 'Import') {
 					if(action !== 'Import') {
 						this.#nodes.import_file.root.setAttribute('hidden', '')
@@ -388,15 +386,16 @@ module.exports = class Product_Manager {
 						this.#nodes.import_file.root.removeAttribute('hidden')
 					}
 					if(is_change) this.#data = []
+					this.reset_preview()
 					this.preview_data()
 				},
 				Modify: async () => {
+					this.reset_preview()
 					await this.select_data()
 					this.preview_data() 
 				},
 				Export: async () => {
-					await this.select_data()
-					this.preview_data()
+					this.export_data()
 				}
 			})[action]()
 		}
@@ -610,5 +609,21 @@ module.exports = class Product_Manager {
 		}
 
 		progress_indicator.progress = 0
+	}
+
+	async stringify_data() {
+		const stringified = await new Promise(resolve => this.#csv_stringify(this.#data, { columns: Object.keys(this.#models[this.#model].model.schema.obj), header: true }, (err, output) => resolve(output)))
+		return stringified
+	}
+
+	async export_data() {
+		const stringified = await this.stringify_data()
+
+        const anchor = document.createElement('a');
+        anchor.href = `data:text/csv,${encodeURIComponent(stringified)}`
+        anchor.download = 'Export.csv';        
+        document.body.appendChild(anchor);
+        anchor.click();        
+        document.body.removeChild(anchor);
 	}
 }
