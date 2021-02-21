@@ -455,7 +455,13 @@ module.exports = class Product_Manager {
 					for(const variant_index in variants) {
 						models.Variant = variants[variant_index]
 
-						const record = {}
+						const record = {
+							reference: { 
+								Blend: models.Blend._id,
+								Product: models.Product._id,
+								Variant: models.Variant._id
+							}
+						}
 						if(!+variant_index) for(const header of Object.keys(models.Product.schema.obj)) record[header] = models.Product[header]
 						for(const header of Object.keys(models.Variant.schema.obj)) record[header] = models.Variant[header]
 						for(const header of Object.keys(this.#models.Shopify.model.schema.obj)) {
@@ -584,7 +590,6 @@ module.exports = class Product_Manager {
 			await this.#mongoose.connect();
 
 			const condition = record._id ? { _id: record._id } : (unique.length ? { $and: unique.map(e => ({ [e]: record[e] })) } : null)
-			console.log(condition)
 			const query = condition ? await model.findOne(condition).exec() : null
 			const name = record['Variant SKU'] || record['Variant SKU Format'] || record.Title
 

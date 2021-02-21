@@ -41,7 +41,8 @@ const schemas = {
         'Image Src Format': String,
         'Image Position': String,
         'Image Position Format': String,
-        'Image Alt Text': String
+        'Image Alt Text': String,
+        'Image Alt Text Format': String
     }),
     variant: new mongoose.Schema({
         'Handle': String,
@@ -120,7 +121,8 @@ const schemas = {
         'Variant Tax Code Format': String,
         'Cost per item': String,
         'Cost per item Format': String,
-        'Status': String
+        'Status': String,
+        'Status Format': String
     }),
     shopify: new mongoose.Schema({
         'Handle': String,
@@ -217,7 +219,8 @@ const schemas = {
         'Variant Tax Code Format': String,
         'Cost per item': String,
         'Cost per item Format': String,
-        'Status': String
+        'Status': String,
+        'Status Format': String
     }),
     shopify_export: new mongoose.Schema({
         'Handle': String,
