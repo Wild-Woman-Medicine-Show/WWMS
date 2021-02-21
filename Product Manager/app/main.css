@@ -8,7 +8,7 @@
 	--bg-color-grey-07: rgba( 70, 70, 70,1);
 	--bg-color-grey-08: rgba( 80, 80, 80,1);
 	--bg-color-grey-09: rgba( 90, 90, 90,1);
-	--bg-color-grey-10: rgba(100,100,100,1);
+	--bg-color-grey-10: rgba( 0, 0, 0,0.25);
 	--bg-color-red-01: rgba(255,0,0,0.5);
 	--bg-color-red-02: rgba(255,25,0,0.5);
 	--bg-color-red-03: rgba(255,50,0,0.5);
@@ -32,27 +32,50 @@
 }
 
 * {
+	font-family: sans-serif;
+	color: #EEE;
 	box-sizing: border-box;
 	line-height: 1.25em;
 }
-html, body {
-	margin: 0;
+*::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-corner {
 	background: var(--bg-color-grey-02);
+}
+*::-webkit-scrollbar-thumb {
+	background: var(--bg-color-grey-04);
+}
+*:focus {
+    outline: none;
+}
+
+html {
+	background: var(--bg-color-grey-02);
+	font-size: 12pt;
+}
+html, body {
 	height: 100%;
 }
-html, input, button {
-	font-family: sans-serif;
-	color: #EEE;
-	font-size: 12pt;
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+form {
 	margin: 0;
 }
 input, button {
-	background: var(--bg-color-grey-06);
+	background: var(--bg-color-grey-04);
+	font-size: 12pt;
 	border: 0;
-	padding: 0.10in 0.20in;
+	padding: 4px 8px;
 	display: inline-block;
 }
-input:not([disabled]), button:not([disabled]) {
+input:not([type="text"]):not([disabled]), button:not([disabled]) {
 	cursor: pointer;
 }
 input:disabled, button:disabled {
@@ -60,26 +83,154 @@ input:disabled, button:disabled {
 	color: #AAA;
 }
 input[type="text"] {
-	background: var(--bg-color-grey-05);
+	background: var(--bg-color-grey-03);
 }
-input[type="text"]:disabled {
-	background: var(--bg-color-grey-04);
+input:readonly {
+	cursor: text;
 	color: #AAA;
 }
 input:not([type="text"]):not([disabled]):hover, input:not([type="text"])[active], button:not([disabled]):hover, button[active] {
-	background: var(--bg-color-grey-07);
+	background: var(--bg-color-grey-05);
 }
+
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
 }
+
 p {
 	margin: 0;
-	margin-bottom: 0.15in;
+	margin-bottom: 1.25em;
 }
-*:focus {
-    outline: none;
+
+table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+	border: 0;
+	padding: 4px 4px;
 }
+tr:nth-child(odd) {
+	background: var(--bg-color-grey-02);
+}
+tr:nth-child(even) {
+	background: var(--bg-color-grey-01);
+}
+td {
+	vertical-align: top;
+	padding: 4px 4px;
+}
+
 [hidden] {
 	display: none;
+}
+
+#title-bar {
+    background: var(--bg-color-grey-01);
+    display: flex;
+}
+#title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    flex: 1 0 auto;
+}
+#title, .window-button {
+    background: var(--bg-color-grey-01);
+    padding: 0.05in 0.10in;
+}
+.window-button:hover {
+    background: var(--bg-color-grey-02);
+}
+
+#content {
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+.flex {
+	display: flex;
+}
+
+#utilities-table td {
+	white-space: nowrap;
+}
+
+#search {
+	width: 100%;
+}
+#search-form {
+	display: flex;
+}
+#search-input {
+	flex: 1 0 auto;
+}
+
+.button-set, #import-file-form, #search-form {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0px;
+	padding: 4px 2px;
+	background-color: var(--bg-color-grey-04);
+}
+.button-set button, #import-file-path, #import-file-open, #search-input, #search-form button {
+	min-width: 80px;
+	flex: 0 0 auto;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+#confirm-select .button-set {
+	background-color: transparent;
+	padding: 0;
+	margin-right: -2px;
+}
+#import-file-path, #search-input {
+	flex: 1 0 auto;
+}
+#import-file-open, #search-form button {
+	min-width: max-content;
+}
+
+#import-file-input {
+    width: 0;
+    padding: 0;
+}
+
+#preview {
+	flex: 1 1 auto;
+	display: flex;
+	overflow: auto;
+}
+#preview td {
+}
+#preview td:nth-child(odd) {
+	background: var(--bg-color-grey-10);
+}
+#preview .flex {
+	align-items: stretch;
+}
+#preview .flex > div {
+	flex: 1 0 auto;
+	white-space: pre-wrap;
+	width: max-content;
+	max-width: 80em;
+}
+#preview .delete-button {
+    background: transparent;
+}
+#preview .delete-button:hover {
+    background-color: var(--bg-color-red-02)
+}
+
+.confirm-button[data-action="reset"] {
+	background-color: var(--bg-color-red-02)
+}
+
+#progress-indicator {
+	display: block;
+	width: 0%;
+	background: var(--bg-color-green-05);
+	padding: 0;
+	height: 8px;
 }

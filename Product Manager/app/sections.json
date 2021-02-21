@@ -1,8 +1,0 @@
-{
-	"root": "./sections",
-	"sections": [
-		"import.js",
-		"modify.js",
-		"export.js"
-	]
-}
