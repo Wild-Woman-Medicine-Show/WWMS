@@ -471,13 +471,7 @@ module.exports = class Product_Manager {
 					for(const variant_index in variants) {
 						models.Variant = variants[variant_index]
 
-						const record = {
-							reference: { 
-								Blend: models.Blend._id,
-								Product: models.Product._id,
-								Variant: models.Variant._id
-							}
-						}
+						const record = {}
 						if(!+variant_index) for(const header of Object.keys(models.Product.schema.obj)) record[header] = models.Product[header]
 						for(const header of Object.keys(models.Variant.schema.obj)) record[header] = models.Variant[header]
 						for(const header of Object.keys(this.#models.Shopify.model.schema.obj)) {
@@ -504,7 +498,7 @@ module.exports = class Product_Manager {
 
 		if(!this.data.length) return
 
-		const insert_row = async (record) => {
+		const insert_row = (record) => new Promise(resolve => process.nextTick(async () => {
 			const is_header = !record
 
 			const table_row = this.#nodes.preview.root.insertRow(-1)
@@ -555,11 +549,13 @@ module.exports = class Product_Manager {
 			}
 
 			return table_row
-		} 
+		})) 
 
-		const header_row = await insert_row()
+		const rows = [ insert_row() ]
 
-		for(let index in this.#data) await insert_row(this.#data[index])
+		for(let index in this.#data) rows.push(insert_row(this.#data[index]))
+
+		await Promise.all(rows)
 
 		this.#nodes.preview.root.removeAttribute('hidden')
 		this.#nodes.confirm_select.root.removeAttribute('hidden')
