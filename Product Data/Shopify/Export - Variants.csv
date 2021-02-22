@@ -1,0 +1,61 @@
+Handle,Handle Format,Option1 Name,Option1 Name Format,Option1 Value,Option1 Value Format,Option2 Name,Option2 Name Format,Option2 Value,Option2 Value Format,Option3 Name,Option3 Name Format,Option3 Value,Option3 Value Format,Variant SKU,Variant SKU Format,Variant Grams,Variant Grams Format,Variant Inventory Tracker,Variant Inventory Tracker Format,Variant Inventory Qty,Variant Inventory Qty Format,Variant Inventory Policy,Variant Inventory Policy Format,Variant Fulfillment Service,Variant Fulfillment Service Format,Variant Price,Variant Price Format,Variant Compare At Price,Variant Compare At Price Format,Variant Requires Shipping,Variant Requires Shipping Format,Variant Taxable,Variant Taxable Format,Variant Barcode,Variant Barcode Format,Gift Card,Gift Card Format,SEO Title,SEO Title Format,SEO Description,SEO Description Format,Google Shopping / Google Product Category,Google Shopping / Google Product Category Format,Google Shopping / Gender,Google Shopping / Gender Format,Google Shopping / Age Group,Google Shopping / Age Group Format,Google Shopping / MPN,Google Shopping / MPN Format,Google Shopping / AdWords Grouping,Google Shopping / AdWords Grouping Format,Google Shopping / AdWords Labels,Google Shopping / AdWords Labels Format,Google Shopping / Condition,Google Shopping / Condition Format,Google Shopping / Custom Product,Google Shopping / Custom Product Format,Google Shopping / Custom Label 0,Google Shopping / Custom Label 0 Format,Google Shopping / Custom Label 1,Google Shopping / Custom Label 1 Format,Google Shopping / Custom Label 2,Google Shopping / Custom Label 2 Format,Google Shopping / Custom Label 3,Google Shopping / Custom Label 3 Format,Google Shopping / Custom Label 4,Google Shopping / Custom Label 4 Format,Variant Image,Variant Image Format,Variant Weight Unit,Variant Weight Unit Format,Variant Tax Code,Variant Tax Code Format,Cost per item,Cost per item Format,Status,Status Format
+bath-treatment,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Size,,100g,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},100,,,,0,,deny,,manual,,,${ (models.Blend.Line === 'Master Cleanse' ? 7.5 : 6) },,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title} - Front.png`)
+    }`)}",g,,,,,,active,
+bath-treatment,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,250g,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},250,,,,0,,deny,,manual,,,${ (models.Blend.Line === 'Master Cleanse' ? 15 : 12) },,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title} - Front.png`)
+    }`)}",g,,,,,,active,
+bath-treatment,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,1kg,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},1000,,,,0,,deny,,manual,,,${ (models.Blend.Line === 'Master Cleanse' ? 35 : 30) },,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title} - Front.png`)
+    }`)}",g,,,,,,active,
+bath-treatment,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,2kg,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},2000,,,,0,,deny,,manual,,,${ (models.Blend.Line === 'Master Cleanse' ? 60 : 52) },,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title} - Front.png`)
+    }`)}",g,,,,,,active,
+premium-lotion,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Size,,60ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},60,,,,0,,deny,,manual,,15,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+premium-lotion,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,120ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},120,,,,0,,deny,,manual,,28,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+protection-mist,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Size,,60ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},60,,,,0,,deny,,manual,,12,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+protection-mist,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,120ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},120,,,,0,,deny,,manual,,20,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+life-butter,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Size,,60ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},60,,,,0,,deny,,manual,,18,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+life-butter,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,120ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},120,,,,0,,deny,,manual,,25,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+pure-castile-soap,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Size,,60ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},60,,,,0,,deny,,manual,,18,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
+pure-castile-soap,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",,,120ml,,,,,,,,,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} - ${models.Variant['Option1 Value']},120,,,,0,,deny,,manual,,25,,,,true,,true,,,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",g,,,,,,active,
