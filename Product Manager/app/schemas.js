@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
 const schemas = {
+    schema: new mongoose.Schema({
+        'Name': String,
+        'Schema': String,
+        'Unique': String,
+        'Common': String,
+        'Linked': String
+    }),
     blend: new mongoose.Schema({
         'Line': String,
         'Line Format': String,
