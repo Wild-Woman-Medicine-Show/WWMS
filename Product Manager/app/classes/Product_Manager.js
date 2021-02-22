@@ -7,7 +7,70 @@ module.exports = class Product_Manager {
 	#reader = null
 	#model = ''
 	#models_disabled = []
-	#actions = ['Import','Modify','Export']
+	#actions = {
+		Import: {
+			handler: ({ is_change, previous }) => {
+				if(is_change && this.#action === 'Import') {
+					if(action !== 'Import') {
+						this.#nodes.import_file.root.setAttribute('hidden', '')
+					}
+					this.reset_import()
+				}
+
+				if(this.#nodes.import_file.root.hasAttribute('hidden')) {
+					this.#nodes.import_file.root.removeAttribute('hidden')
+				}
+
+				if(is_change) this.#data = []
+				this.reset_preview()
+				this.preview_data()
+			},
+			mode: 'Toggle'
+		},
+		Modify: {
+			handler: async ({ is_change, previous }) => {
+				this.reset_preview()
+				await this.select_data()
+				this.preview_data() 
+			},
+			mode: 'Toggle'
+		},
+		Export: {
+			handler: async ({ is_change, previous }) => {
+				this.export_data()
+			},
+			mode: 'Momentary'
+		}
+		Save: {
+			handler: async ({ is_change, previous }) => {
+				if(this.#action === 'Import' || !/Shopify/.test(this.#model)) {
+					const data = this.#data
+					const model = this.#model
+					const processed = this.process_data()
+
+					for(const model in processed) {
+						this.#model = model
+						this.#data = processed[model]
+						await this.save_data()
+					}
+
+					this.#data = data
+					this.#model = model
+				} else {
+					this.export_data()
+				}
+			},
+			mode: 'Momentary'
+		},
+		Reset: {
+			handler: ({ is_change, previous }) => {
+				e.preventDefault()
+				this.#data = []
+				this.action = this.#action
+			},
+			mode: 'Momentary'
+		}
+	}
 	#action = ''
 	#query = {}
 	#data = []
@@ -36,7 +99,6 @@ module.exports = class Product_Manager {
 									<div id="action-select" class="button-set">
 										<button class="action-button" data-action="Import" active>Import</button>
 										<button class="action-button" data-action="Modify">Modify</button>
-										<button class="action-button" data-action="Export">Export</button>
 									</div>
 								</div>
 							</td>
@@ -79,8 +141,9 @@ module.exports = class Product_Manager {
 					<tbody>
 						<tr><td style="padding-bottom: 8px">
 							<div class="button-set">
-								<button class="confirm-button" data-action="confirm">Confirm</button>
-							    <button class="confirm-button" data-action="reset">Reset</button>
+								<button class="confirm-button" data-action="Save">Save</button>
+								<button class="confirm-button" data-action="Export">Export</button>
+							    <button class="confirm-button" data-action="Reset">Reset</button>
 							</div>
 						</td></tr>
 					</tbody>
@@ -205,7 +268,6 @@ module.exports = class Product_Manager {
 					e && e.preventDefault()
 
 					this.action = button.dataset.action
-					this.models_disabled = button.dataset.disable ? JSON.parse(button.dataset.disable) : []
 				}
 
 				if(button.hasAttribute('active')) process.nextTick(handle)
@@ -232,32 +294,15 @@ module.exports = class Product_Manager {
 
 			for(const button of buttons) {
 				confirm_select[button.dataset.action] = button
-			}
 
-			confirm_select.confirm.addEventListener('click', async e => {
-				if(this.#action === 'Import' || !/Shopify/.test(this.#model)) {
-					const data = this.#data
-					const model = this.#model
-					const processed = this.process_data()
+				const handle = e => {
+					e && e.preventDefault()
 
-					for(const model in processed) {
-						this.#model = model
-						this.#data = processed[model]
-						await this.save_data()
-					}
-
-					this.#data = data
-					this.#model = model
-				} else {
-					this.export_data()
+					this.confirm = button.dataset.action
 				}
-			})
 
-			confirm_select.reset.addEventListener('click', e => {
-				e.preventDefault()
-				this.#data = []
-				this.action = this.#action
-			})
+				button.addEventListener('click', handle)
+			}
 
 			return confirm_select
 		})()
@@ -368,41 +413,25 @@ module.exports = class Product_Manager {
 		return this.#action
 	}
 	set action(action) {
-		if(this.#actions.includes(action)) {
+		if(action in this.#actions) {
 			const is_change = action !== this.#action
+			const previous = this.#action
 
-			if(is_change && action !== 'Export') {
-				if(this.#action === 'Import') {
-					if(action !== 'Import') {
-						this.#nodes.import_file.root.setAttribute('hidden', '')
-					}
-					this.reset_import()
-				}
+			if(is_change && this.#actions[action].mode === 'Toggle') {
 
 				if(this.#action) this.#nodes.action_select[this.#action].removeAttribute('active')
 				this.#nodes.action_select[action].setAttribute('active', '')
 				this.#action = action
 			}
 
-			;({
-				Import: () => {
-					if(this.#nodes.import_file.root.hasAttribute('hidden')) {
-						this.#nodes.import_file.root.removeAttribute('hidden')
-					}
-					if(is_change) this.#data = []
-					this.reset_preview()
-					this.preview_data()
-				},
-				Modify: async () => {
-					this.reset_preview()
-					await this.select_data()
-					this.preview_data() 
-				},
-				Export: async () => {
-					this.export_data()
-				}
-			})[action]()
+			this.#actions[action].handler({ is_change, previous })
 		}
+	}
+
+	get confirm() {
+
+	}
+	set confirm(action) {
 	}
 
 	get query() {
@@ -480,10 +509,6 @@ module.exports = class Product_Manager {
 							const target = header.replace(/ Format$/, '')
 
 							record[target] = new Function('models', "return `" + record[header] + "`")(models)
-
-							if(target === 'Handle') {
-								record[target] = record[target].toLowerCase().replace(/\s+/g, '-')
-							}
 						}
 
 						this.#data.push(new this.#models.Shopify_Export.model(record))
@@ -548,7 +573,7 @@ module.exports = class Product_Manager {
 				}
 			}
 
-			return table_row
+			resolve(table_row)
 		})) 
 
 		const rows = [ insert_row() ]
