@@ -1,51 +1,114 @@
-Line,Title,Subtitle_1,#Subtitle_1_Visible,Oils
-Vintage,All The Orange,,TRUE,"mandarin, sweet orange, and five fold orange"
-Vintage,Bergamot,,TRUE,bergamot
-Vintage,Cedar,,TRUE,cedar
-Vintage,Coconut,,TRUE,coconut
-Vintage,Coffee,,TRUE,coffee
-Vintage,Dragon’s Blood,,TRUE,dragon’s blood
-Vintage,Elder Rose,,TRUE,elder rose
-Vintage,Eucalyptus,,TRUE,eucalyptus
-Vintage,Frankincense,,TRUE,frankincense
-Vintage,Frankincense and Myrrh,,TRUE,frankincense and myrrh
-Vintage,Gardenia,,TRUE,gardenia
-Vintage,Ginger blossom,,TRUE,ginger blossom
-Vintage,Green Tea,,TRUE,green tea
-Vintage,Hard Candy,,TRUE,hard candy
-Vintage,Honey,,TRUE,honey
-Vintage,Honeysuckle,,TRUE,honeysuckle
-Vintage,Huckleberry,,TRUE,huckleberry
-Vintage,Island Summer,,TRUE,island summer
-Vintage,Japanese Cherry Blossom,,TRUE,japanese cherry blossom
-Vintage,Jasmine,,TRUE,jasmine
-Vintage,Lavender,,TRUE,lavender
-Vintage,Lemon,,TRUE,lemon
-Vintage,Lemon Blossom,,TRUE,lemon blossom
-Vintage,Lemongrass,,TRUE,lemongrass
-Vintage,Lily of the Valley,,TRUE,lily of the valley
-Vintage,Lotus,,TRUE,lotus
-Vintage,Magnolia,,TRUE,magnolia
-Vintage,Manchurian Dragon,,TRUE,manchurian dragon
-Vintage,Marbella,,TRUE,marbella
-Vintage,Moonlight Walk,,TRUE,moonlight walk
-Vintage,Moroccan Midnight,,TRUE,moroccan midnight
-Vintage,Nag Champa,,TRUE,nag champa
-Vintage,Neroli,,TRUE,neroli
-Vintage,Ocean,,TRUE,ocean
-Vintage,Patchouli,,TRUE,patchouli
-Vintage,Peach,,TRUE,peach
-Vintage,Peppermint,,TRUE,peppermint
-Vintage,Plumeria,,TRUE,plumeria
-Vintage,Pomegranate,,TRUE,pomegranate
-Vintage,Red Currant and Thyme,,TRUE,red currant and thyme
-Vintage,Rose,,TRUE,rose
-Vintage,Sage,,TRUE,sage
-Vintage,Sandalwood,,TRUE,sandalwood
-Vintage,Sweet Pea,,TRUE,sweet pea
-Vintage,Sweetgrass,,TRUE,sweetgrass
-Vintage,Vanilla,,TRUE,vanilla
-Vintage,Violet,,TRUE,violet
-Vintage,White Tea and Ginger,,TRUE,white tea and ginger
-Vintage,Wild Rose,,TRUE,wild rose
-Vintage,Wintergreen,,TRUE,wintergreen
+Line,Title,Description,Subtitle_1,#Subtitle_1_Visible,Subtitle_2,#Subtitle_2_Visible,@Image,Oils,__v
+Vintage,All The Orange,,,FALSE,,FALSE,,"mandarin, sweet orange, and five fold orange",0
+Vintage,Allspice,,,FALSE,,FALSE,,Allspice,0
+Vintage,Amber,,,FALSE,,FALSE,,Amber,0
+Vintage,Aniseed,,,FALSE,,FALSE,,Aniseed,0
+Vintage,Apple Pie,,,FALSE,,FALSE,,Apple Pie,0
+Vintage,Armoise Mugwort,,,FALSE,,FALSE,,Armoise Mugwort,0
+Vintage,Back Forest,,,FALSE,,FALSE,,Back Forest,0
+Vintage,Bergamot,,,FALSE,,FALSE,,bergamot,0
+Vintage,Black Magic,,,FALSE,,FALSE,,Black Magic,0
+Vintage,Black Pepper,,,FALSE,,FALSE,,Black Pepper,0
+Vintage,Cade,,,FALSE,,FALSE,,Cade,0
+Vintage,Cassia,,,FALSE,,FALSE,,Cassia,0
+Vintage,Cedar,,,FALSE,,FALSE,,cedar,0
+Vintage,Cedarwood,,,FALSE,,FALSE,,Cedarwood,0
+Vintage,Champagne,,,FALSE,,FALSE,,Champagne,0
+Vintage,Chocolate,,,FALSE,,FALSE,,Chocolate,0
+Vintage,Clove Bud,,,FALSE,,FALSE,,Clove Bud,0
+Vintage,Coconut,,,FALSE,,FALSE,,coconut,0
+Vintage,Coffee,,,FALSE,,FALSE,,coffee,0
+Vintage,Cool Water,,,FALSE,,FALSE,,Cool Water,0
+Vintage,Cotton,,,FALSE,,FALSE,,Cotton,0
+Vintage,Cypress,,,FALSE,,FALSE,,Cypress,0
+Vintage,Dragon's Blood,,,FALSE,,FALSE,,dragon's blood,0
+Vintage,Elder Rose,,,FALSE,,FALSE,,elder rose,0
+Vintage,Eucalyptus,,,FALSE,,FALSE,,eucalyptus,0
+Vintage,Five Fold Orange,,,FALSE,,FALSE,,Five Fold Orange,0
+Vintage,Frangipani,,,FALSE,,FALSE,,Frangipani,0
+Vintage,Frankincense,,,FALSE,,FALSE,,frankincense,0
+Vintage,Frankincense and Myrrh,,,FALSE,,FALSE,,frankincense and myrrh,0
+Vintage,Fuzzy Peach,,,FALSE,,FALSE,,Fuzzy Peach,0
+Vintage,Gardenia,,,FALSE,,FALSE,,gardenia,0
+Vintage,Ginger,,,FALSE,,FALSE,,Ginger,0
+Vintage,Ginger blossom,,,FALSE,,FALSE,,ginger blossom,0
+Vintage,Grapefruit,,,FALSE,,FALSE,,Grapefruit,0
+Vintage,Green Leaves,,,FALSE,,FALSE,,Green Leaves,0
+Vintage,Green Tea,,,FALSE,,FALSE,,green tea,0
+Vintage,Hard Candy,,,FALSE,,FALSE,,hard candy,0
+Vintage,Hawaiian Ginger,,,FALSE,,FALSE,,Hawaiian Ginger,0
+Vintage,Ho Wood,,,FALSE,,FALSE,,Ho Wood,0
+Vintage,Honey,,,FALSE,,FALSE,,honey,0
+Vintage,Honeysuckle,,,FALSE,,FALSE,,honeysuckle,0
+Vintage,Huckleberry,,,FALSE,,FALSE,,huckleberry,0
+Vintage,Hyssop,,,FALSE,,FALSE,,Hyssop,0
+Vintage,Island Summer,,,FALSE,,FALSE,,island summer,0
+Vintage,Jamaican Spice,,,FALSE,,FALSE,,Jamaican Spice,0
+Vintage,Jamarosa,,,FALSE,,FALSE,,Jamarosa,0
+Vintage,Japanese Cherry Blossom,,,FALSE,,FALSE,,japanese cherry blossom,0
+Vintage,Jasmine,,,FALSE,,FALSE,,jasmine,0
+Vintage,Lavender,,,FALSE,,FALSE,,lavender,0
+Vintage,Leather & Lace,,,FALSE,,FALSE,,Leather & Lace,0
+Vintage,Lemon,,,FALSE,,FALSE,,lemon,0
+Vintage,Lemon Blossom,,,FALSE,,FALSE,,lemon blossom,0
+Vintage,Lemongrass,,,FALSE,,FALSE,,lemongrass,0
+Vintage,Lily of the Valley,,,FALSE,,FALSE,,lily of the valley,0
+Vintage,Lime,,,FALSE,,FALSE,,Lime,0
+Vintage,Litsea Cubeba,,,FALSE,,FALSE,,Litsea Cubeba,0
+Vintage,Lotus,,,FALSE,,FALSE,,lotus,0
+Vintage,Magnolia,,,FALSE,,FALSE,,magnolia,0
+Vintage,Manchurian Dragon,,,FALSE,,FALSE,,manchurian dragon,0
+Vintage,Maple Syrup,,,FALSE,,FALSE,,Maple Syrup,0
+Vintage,Marbella,,,FALSE,,FALSE,,marbella,0
+Vintage,Marjoram,,,FALSE,,FALSE,,Marjoram,0
+Vintage,Melissa,,,FALSE,,FALSE,,Melissa,0
+Vintage,Moonlight Walk,,,FALSE,,FALSE,,moonlight walk,0
+Vintage,Moroccan Midnight,,,FALSE,,FALSE,,moroccan midnight,0
+Vintage,Myrtle,,,FALSE,,FALSE,,Myrtle,0
+Vintage,Nag Champa,,,FALSE,,FALSE,,nag champa,0
+Vintage,Neroli,,,FALSE,,FALSE,,neroli,0
+Vintage,Ocean,,,FALSE,,FALSE,,ocean,0
+Vintage,Ocean Breeze,,,FALSE,,FALSE,,Ocean Breeze,0
+Vintage,Opium,,,FALSE,,FALSE,,Opium,0
+Vintage,Palmarosa,,,FALSE,,FALSE,,Palmarosa,0
+Vintage,Palo Santo,,,FALSE,,FALSE,,Palo Santo,0
+Vintage,Patchouli,,,FALSE,,FALSE,,patchouli,0
+Vintage,Patchouli Light,,,FALSE,,FALSE,,Patchouli Light,0
+Vintage,Peach,,,FALSE,,FALSE,,peach,0
+Vintage,Peaches & Cream,,,FALSE,,FALSE,,Peaches & Cream,0
+Vintage,Pennyroyal,,,FALSE,,FALSE,,Pennyroyal,0
+Vintage,Peppermint,,,FALSE,,FALSE,,peppermint,0
+Vintage,Pine Scotch,,,FALSE,,FALSE,,Pine Scotch,0
+Vintage,Plumeria,,,FALSE,,FALSE,,plumeria,0
+Vintage,Pomegranate,,,FALSE,,FALSE,,pomegranate,0
+Vintage,Pumpkin Pie,,,FALSE,,FALSE,,Pumpkin Pie,0
+Vintage,Raspberry,,,FALSE,,FALSE,,Raspberry,0
+Vintage,Red Currant and Thyme,,,FALSE,,FALSE,,red currant and thyme,0
+Vintage,Red Rose,,,FALSE,,FALSE,,Red Rose,0
+Vintage,Remembering,,,FALSE,,FALSE,,Remembering,0
+Vintage,Rose,,,FALSE,,FALSE,,rose,0
+Vintage,Rose Geranium,,,FALSE,,FALSE,,Rose Geranium,0
+Vintage,Rosemary,,,FALSE,,FALSE,,Rosemary,0
+Vintage,Rosewood,,,FALSE,,FALSE,,Rosewood,0
+Vintage,Sage,,,FALSE,,FALSE,,sage,0
+Vintage,Sandalwood,,,FALSE,,FALSE,,sandalwood,0
+Vintage,Spearmint,,,FALSE,,FALSE,,Spearmint,0
+Vintage,Spring Magnolia,,,FALSE,,FALSE,,Spring Magnolia,0
+Vintage,Sweet Birch,,,FALSE,,FALSE,,Sweet Birch,0
+Vintage,Sweet Orange,,,FALSE,,FALSE,,Sweet Orange,0
+Vintage,Sweet Pea,,,FALSE,,FALSE,,sweet pea,0
+Vintage,Sweetgrass,,,FALSE,,FALSE,,sweetgrass,0
+Vintage,Tea Tree,,,FALSE,,FALSE,,Tea Tree,0
+Vintage,Temptation,,,FALSE,,FALSE,,Temptation,0
+Vintage,Vanilla,,,FALSE,,FALSE,,vanilla,0
+Vintage,Vetiver,,,FALSE,,FALSE,,Vetiver,0
+Vintage,Violet,,,FALSE,,FALSE,,violet,0
+Vintage,Water Crystal,,,FALSE,,FALSE,,Water Crystal,0
+Vintage,White Rose,,,FALSE,,FALSE,,White Rose,0
+Vintage,White Tea and Ginger,,,FALSE,,FALSE,,white tea and ginger,0
+Vintage,Wild Rose,,,FALSE,,FALSE,,wild rose,0
+Vintage,Winter,,,FALSE,,FALSE,,Winter,0
+Vintage,Wintergreen,,,FALSE,,FALSE,,wintergreen,0
+Vintage,Wormwood,,,FALSE,,FALSE,,Wormwood,0
+Vintage,Yarrow,,,FALSE,,FALSE,,Yarrow,0
+Vintage,Ylang Ylang,,,FALSE,,FALSE,,Ylang Ylang,0

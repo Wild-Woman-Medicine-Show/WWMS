@@ -6,71 +6,80 @@ function remove_cutline(doc) {
 	cutline.remove()
 }
 
-function fill_border(doc) {
-	var items = doc.pageItems
-	if(!items) return
-
-	var border = items.getByName("Border")
-	border.filled = true;
-	var fill_color = new CMYKColor();
-	fill_color.black = 0;
-	fill_color.cyan = 0;
-	fill_color.magenta = 0;
-	fill_color.yellow = 0;
-	border.fillColor = fill_color
-}
-
 function get_template_data(doc) {
 	var split = doc.name.substring(0, doc.name.lastIndexOf('.')).split(' - ')
 	return {
 		type: split[1],
 		size: split[2],
 		line: split[3],
-		position: split[4]
+		blend: 5 in split ? split[4] : null,
+		position: 5 in split ? split[5] : split[4]
 	}
 }
 
 function get_output_name(doc, data) {
+	var blend = data.blend
+	if(doc.variables.getByName('Title')) blend = doc.variables.getByName('Title').pageItems[0].contents.replace('/',' ')
 	return "WWMS" + 
            " - " + data.type + 
            " - " + data.size + 
            " - " + data.line + 
-           " - " + doc.variables.getByName('Title').pageItems[0].contents.replace('/',' ') + 
+           (data.blend ? " - " + data.blend : "") +
            (data.position ? " - " + data.position : "")
 }
-
-function query_folders() {
-	var base = new Folder(new Folder().path)
-	var folders = {
-		input: base.selectDlg("Select input folder"),
-	    output: base.selectDlg("Select output folder")
-	}
-	return folders
+function get_output_folder(folder) {
+	return new Folder(folder.absoluteURI.replace('Template', 'Image'))
 }
 
-(function main() {
-	var folders = query_folders()
-	if(!folders.input || !folder.output) return
+function is_folder(folder) {
+	var is_folder = false
+	try {
+		folder.getFiles('*')
+		is_folder = true
+	} catch(e) {}
+	return is_folder
+}
 
-	var templates = folders.input.getFiles("*.ai")
-	if(!templates) return
+function export_template(template, dataset, data) {
+	dataset.display()
+	var output = get_output_folder(new Folder(template.path))
+	if(!output.exists) output.create()
+	template.exportFile(
+		new File(output.absoluteURI + "/" + get_output_name(template, data) + ".png"), 
+		ExportType.PNG24
+	)
+}
 
-	for(var ai = templates.length - 1; ai > -1; --ai) {
-	    var template = app.open(templates[ai])
-	    var data = get_template_data(template)
-		var datasets = template.dataSets
+function iterate_datasets(template, datasets, data, cb) {
+	if(datasets.length) {
+		for(var index = datasets.length - 1; index > -1; --index) {
+			cb(template, datasets[index], data)
+		}
+	} else {
+		cb(template, { display: function() {} }, data)
+	}
+}
+
+function iterate_directory(folder) {
+	if(is_folder(folder)) {
+		var directory = folder.getFiles("*")
+
+		for(var index = directory.length - 1; index > -1; --index) {
+			iterate_directory(directory[index])
+		}
+	} else if(/\.ai$/.test(folder.name) > -1) {
+	    var template = app.open(folder)
 
 		remove_cutline(template)
-		fill_border(template)
 
-		for(var bi = datasets.length - 1; bi > -1; --bi) {
-			datasets[bi].display()
-			template.exportFile(
-				new File(output_folder.absoluteURI + "/" + get_output_name(template, data) + ".png"), 
-				ExportType.PNG24
-			)
-		}
+		iterate_datasets(template, template.dataSets, get_template_data(template), export_template)
 
 		template.close(SaveOptions.DONOTSAVECHANGES)
 	}
+}
+
+(function main() {
+	var input = new Folder('~/WWMS/Product Templates').selectDlg("Select input folder")
+	if(!input) return {}
+	iterate_directory(input)
 })()
