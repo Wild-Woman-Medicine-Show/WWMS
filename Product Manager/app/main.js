@@ -4,9 +4,7 @@ const path = require('path')
 async function createWindow () {
     const {width, height} = screen.getPrimaryDisplay().workAreaSize
     const win = new BrowserWindow({
-        width,
-        height,
-        backgroundColor: '#303030',
+        backgroundColor: '#000000',
         spellcheck: true,
         webPreferences: {
             nodeIntegration: true,

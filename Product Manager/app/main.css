@@ -1,5 +1,5 @@
 :root {
-	--bg-color-grey-01: rgba( 10, 10, 10,1);
+/*	--bg-color-grey-01: rgba( 10, 10, 10,1);
 	--bg-color-grey-02: rgba( 20, 20, 20,1);
 	--bg-color-grey-03: rgba( 30, 30, 30,1);
 	--bg-color-grey-04: rgba( 40, 40, 40,1);
@@ -8,27 +8,37 @@
 	--bg-color-grey-07: rgba( 70, 70, 70,1);
 	--bg-color-grey-08: rgba( 80, 80, 80,1);
 	--bg-color-grey-09: rgba( 90, 90, 90,1);
+	--bg-color-grey-10: rgba( 0, 0, 0,0.25);*/
+	--bg-color-grey-01: rgba(75,75,75,0.1);
+	--bg-color-grey-02: rgba(75,75,75,0.2);
+	--bg-color-grey-03: rgba(75,75,75,0.3);
+	--bg-color-grey-04: rgba(75,75,75,0.4);
+	--bg-color-grey-05: rgba(75,75,75,0.5);
+	--bg-color-grey-06: rgba(75,75,75,0.6);
+	--bg-color-grey-07: rgba(75,75,75,0.7);
+	--bg-color-grey-08: rgba(75,75,75,0.8);
+	--bg-color-grey-09: rgba(75,75,75,0.9);
 	--bg-color-grey-10: rgba( 0, 0, 0,0.25);
-	--bg-color-red-01: rgba(255,0,0,0.5);
-	--bg-color-red-02: rgba(255,25,0,0.5);
-	--bg-color-red-03: rgba(255,50,0,0.5);
-	--bg-color-red-04: rgba(255,75,0,0.5);
-	--bg-color-red-05: rgba(255,100,0,0.5);
-	--bg-color-orange-01: rgba(255,150,0,0.5);
-	--bg-color-orange-02: rgba(255,175,0,0.5);
-	--bg-color-orange-03: rgba(255,200,0,0.5);
-	--bg-color-orange-04: rgba(255,225,0,0.5);
-	--bg-color-orange-05: rgba(255,255,0,0.5);
-	--bg-color-yellow-01: rgba(225,255,0,0.5);
-	--bg-color-yellow-02: rgba(200,255,0,0.5);
-	--bg-color-yellow-03: rgba(175,255,0,0.5);
-	--bg-color-yellow-04: rgba(150,255,0,0.5);
-	--bg-color-yellow-05: rgba(125,255,0,0.5);
-	--bg-color-green-01: rgba(0,255,200,0.5);
-	--bg-color-green-02: rgba(0,255,175,0.5);
-	--bg-color-green-03: rgba(0,255,150,0.5);
-	--bg-color-green-04: rgba(0,255,125,0.5);
-	--bg-color-green-05: rgba(0,255,100,0.5);
+	--bg-color-red-01: rgba(255,25,0,0.2);
+	--bg-color-red-02: rgba(255,25,0,0.4);
+	--bg-color-red-03: rgba(225,25,0,0.6);
+	--bg-color-red-04: rgba(255,25,0,0.8);
+	--bg-color-red-05: rgba(255,25,0,1.0);
+	--bg-color-orange-01: rgba(255,100,0,0.2);
+	--bg-color-orange-02: rgba(255,100,0,0.4);
+	--bg-color-orange-03: rgba(255,100,0,0.6);
+	--bg-color-orange-04: rgba(255,100,0,0.8);
+	--bg-color-orange-05: rgba(255,100,0,1.0);
+	--bg-color-yellow-01: rgba(255,255,0,0.2);
+	--bg-color-yellow-02: rgba(255,255,0,0.4);
+	--bg-color-yellow-03: rgba(255,255,0,0.6);
+	--bg-color-yellow-04: rgba(255,255,0,0.8);
+	--bg-color-yellow-05: rgba(255,255,0,1.0);
+	--bg-color-green-01: rgba(0,255,100,0.2);
+	--bg-color-green-02: rgba(0,255,100,0.4);
+	--bg-color-green-03: rgba(0,255,100,0.6);
+	--bg-color-green-04: rgba(0,255,100,0.8);
+	--bg-color-green-05: rgba(0,255,100,1.0);
 }
 
 * {
@@ -43,7 +53,7 @@
 }
 *::-webkit-scrollbar,
 *::-webkit-scrollbar-corner {
-	background: var(--bg-color-grey-02);
+	background: transparent;
 }
 *::-webkit-scrollbar-thumb {
 	background: var(--bg-color-grey-04);
@@ -53,7 +63,7 @@
 }
 
 html {
-	background: var(--bg-color-grey-02);
+	background: transparent;
 	font-size: 12pt;
 }
 html, body {
@@ -75,6 +85,9 @@ input, button {
 	padding: 4px 8px;
 	display: inline-block;
 }
+button.action-reset {
+	background: var(--bg-color-red-02);
+}
 input:not([type="text"]):not([disabled]), button:not([disabled]) {
 	cursor: pointer;
 }
@@ -83,7 +96,7 @@ input:disabled, button:disabled {
 	color: #AAA;
 }
 input[type="text"] {
-	background: var(--bg-color-grey-03);
+	background: transparent;
 }
 input:readonly {
 	cursor: text;
@@ -91,6 +104,9 @@ input:readonly {
 }
 input:not([type="text"]):not([disabled]):hover, input:not([type="text"])[active], button:not([disabled]):hover, button[active] {
 	background: var(--bg-color-grey-05);
+}
+button.action-reset:not([disabled]):hover {
+	background: var(--bg-color-red-03);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -109,34 +125,25 @@ table {
 	border: 0;
 	padding: 4px 4px;
 }
-tr:nth-child(odd) {
-	background: var(--bg-color-grey-02);
-}
-tr:nth-child(even) {
-	background: var(--bg-color-grey-01);
-}
+
 td {
 	vertical-align: top;
 	padding: 4px 4px;
 }
 
-[hidden] {
-	display: none;
-}
-
 #title-bar {
-    background: var(--bg-color-grey-01);
     display: flex;
+    user-select: none;
 }
 #title {
     margin-top: 5px;
     margin-bottom: 5px;
+    line-height: 1em;
     -webkit-app-region: drag;
     -webkit-user-select: none;
     flex: 1 0 auto;
 }
 #title, .window-button {
-    background: var(--bg-color-grey-01);
     padding: 0.05in 0.10in;
 }
 .window-button:hover {
@@ -153,21 +160,24 @@ td {
 	display: flex;
 }
 
-#utilities-table td {
-	white-space: nowrap;
-}
-
 #search {
 	width: 100%;
 }
 #search-form {
+	flex: 1 0 auto;
 	display: flex;
 }
 #search-input {
 	flex: 1 0 auto;
 }
 
-.button-set, #import-file-form, #search-form {
+.flex-spacer {
+	flex: 0 0 8px;
+}
+#import-file, #search-form {
+	flex: 1 0 auto;
+}
+.button-set, #import-file, #search-form {
 	display: flex;
 	justify-content: flex-end;
 	margin: 0px;
@@ -180,18 +190,19 @@ td {
 	margin-left: 2px;
 	margin-right: 2px;
 }
-#confirm-select .button-set {
+#bottom-action-buttons {
 	background-color: transparent;
 	padding: 0;
 	margin-right: -2px;
 }
+
+
 #import-file-path, #search-input {
 	flex: 1 0 auto;
 }
 #import-file-open, #search-form button {
 	min-width: max-content;
 }
-
 #import-file-input {
     width: 0;
     padding: 0;
@@ -202,6 +213,12 @@ td {
 	display: flex;
 	overflow: auto;
 	padding: 0;
+}
+#preview tr:nth-child(odd) {
+	background: var(--bg-color-grey-02);
+}
+#preview tr:nth-child(even) {
+	background: var(--bg-color-grey-01);
 }
 #preview td {
 }
@@ -217,6 +234,7 @@ td {
 	width: max-content;
 	max-width: 80em;
 }
+
 #preview .delete-button {
     background: transparent;
 }
@@ -224,14 +242,16 @@ td {
     background-color: var(--bg-color-red-02)
 }
 
-.confirm-button[data-action="reset"] {
-	background-color: var(--bg-color-red-02)
-}
-
 #progress-indicator {
 	display: block;
 	width: 0%;
-	background: var(--bg-color-green-05);
+	background: var(--bg-color-green-02);
 	padding: 0;
 	height: 8px;
+}
+
+
+
+[hidden] {
+	visibility: hidden;
 }
