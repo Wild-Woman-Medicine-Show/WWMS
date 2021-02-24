@@ -299,7 +299,12 @@ module.exports = class Product_Manager {
 			mongoose.connect = () => {
 				const server_url = `mongodb://localhost/wwms_product_manager`
 
-				connect.call(mongoose, server_url, { useNewUrlParser: true, useUnifiedTopology: true })
+				connect.call(mongoose, server_url, { 
+					useNewUrlParser: true, 
+					useUnifiedTopology: true,
+				    useFindAndModify: false,
+				    useCreateIndex: true
+				})
 
 				return new Promise(resolve => this.#mongoose.connection.once('open', resolve))
 			}

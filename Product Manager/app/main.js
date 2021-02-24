@@ -7,6 +7,7 @@ async function createWindow () {
         backgroundColor: '#000000',
         spellcheck: true,
         webPreferences: {
+            contextIsolation: false,
             nodeIntegration: true,
             enableRemoteModule: true
         },
@@ -40,7 +41,7 @@ async function createWindow () {
     })
     win.maximize()
     win.loadFile('index.html')
-    await win.once('ready-to-show')
+    await new Promise(resolve => win.once('ready-to-show', resolve))
     win.show()
 }
 
