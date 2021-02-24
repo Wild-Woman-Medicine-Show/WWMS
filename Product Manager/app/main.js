@@ -4,11 +4,10 @@ const path = require('path')
 async function createWindow () {
     const {width, height} = screen.getPrimaryDisplay().workAreaSize
     const win = new BrowserWindow({
-        width,
-        height,
-        backgroundColor: '#303030',
+        backgroundColor: '#000000',
         spellcheck: true,
         webPreferences: {
+            contextIsolation: false,
             nodeIntegration: true,
             enableRemoteModule: true
         },
@@ -42,7 +41,7 @@ async function createWindow () {
     })
     win.maximize()
     win.loadFile('index.html')
-    await win.once('ready-to-show')
+    await new Promise(resolve => win.once('ready-to-show', resolve))
     win.show()
 }
 

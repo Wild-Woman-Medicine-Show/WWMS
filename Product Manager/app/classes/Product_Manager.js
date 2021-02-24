@@ -10,18 +10,12 @@ module.exports = class Product_Manager {
 	#actions = {
 		Import: {
 			handler: ({ is_change, previous }) => {
-				if(is_change && this.#action === 'Import') {
-					if(action !== 'Import') {
-						this.#nodes.import_file.root.setAttribute('hidden', '')
-					}
-					this.reset_import()
-				}
-
 				if(this.#nodes.import_file.root.hasAttribute('hidden')) {
 					this.#nodes.import_file.root.removeAttribute('hidden')
 				}
 
 				if(is_change) this.#data = []
+
 				this.reset_preview()
 				this.preview_data()
 			},
@@ -40,13 +34,15 @@ module.exports = class Product_Manager {
 				this.export_data()
 			},
 			mode: 'Momentary'
-		}
+		},
 		Save: {
 			handler: async ({ is_change, previous }) => {
 				if(this.#action === 'Import' || !/Shopify/.test(this.#model)) {
 					const data = this.#data
 					const model = this.#model
 					const processed = this.process_data()
+
+					console.dir({ data, model, processed })
 
 					for(const model in processed) {
 						this.#model = model
@@ -94,9 +90,13 @@ module.exports = class Product_Manager {
 				<table id="utilities-table">
 					<tbody>
 						<tr>
-							<td colspan="2">
+							<td>
 								<div class="flex" style="justify-content: flex-end">
-									<div id="action-select" class="button-set">
+									<form id="import-file">
+										<input type="file" id="import-file-input">
+									</form>
+									<div class="flex-spacer"></div>
+									<div id="top-action-buttons" class="button-set">
 										<button class="action-button" data-action="Import" active>Import</button>
 										<button class="action-button" data-action="Modify">Modify</button>
 									</div>
@@ -107,43 +107,35 @@ module.exports = class Product_Manager {
 					<tbody>
 						<tr>
 							<td id="search">
-								<form id="search-form">
-									<input type="text" id="search-input">
-									<button class="search-button" data-action="submit">&#128269;</button>
-									<button class="search-button" data-action="reset">&#128473;</button>
-								</form>
-							</td>
-							<td>
-								<div id="model-select" class="button-set">
-									<button class="model-button" data-model="Blend" active>Blends</button>
-									<button class="model-button" data-model="Product">Products</button>
-									<button class="model-button" data-model="Variant">Variants</button>
-									<button class="model-button" data-model="Shopify">Shopify</button>
+								<div class="flex" style="justify-content: flex-end">
+									<form id="search-form">
+										<input type="text" id="search-input">
+										<button class="action-button" data-action="Submit Search">&#128269;</button>
+										<button class="action-button action-reset" data-action="Reset Search">&#128473;</button>
+									</form>
+									<div class="flex-spacer"></div>
+									<div id="model-select" class="button-set">
+										<button class="model-button" data-model="Blend" active>Blends</button>
+										<button class="model-button" data-model="Product">Products</button>
+										<button class="model-button" data-model="Variant">Variants</button>
+										<button class="model-button" data-model="Shopify">Shopify</button>
+									</div>
 								</div>
 							</td>
 						</tr>
 					</tbody>
-					<tbody id="import-file">
-						<tr>
-							<td colspan="2">
-								<form id="import-file-form">
-									<input type="file" id="import-file-input">
-								</form>
-							</td>
-						</tr>
-					</tbody>
 				</table>
-				<table id="preview" hidden>
+				<table id="preview">
 					<tbody>
 					</tbody>
 				</table>
-				<table id="confirm-select" hidden style="padding-bottom: 0;">
+				<table style="padding-bottom: 0;">
 					<tbody>
 						<tr><td style="padding-bottom: 8px">
-							<div class="button-set">
-								<button class="confirm-button" data-action="Save">Save</button>
-								<button class="confirm-button" data-action="Export">Export</button>
-							    <button class="confirm-button" data-action="Reset">Reset</button>
+							<div id="bottom-action-buttons" class="button-set">
+								<button class="action-button" data-action="Save">Save</button>
+								<button class="action-button" data-action="Export">Export</button>
+							    <button class="action-button action-reset" data-action="Reset">Reset</button>
 							</div>
 						</td></tr>
 					</tbody>
@@ -191,7 +183,7 @@ module.exports = class Product_Manager {
             const import_file = {}
 
             import_file.root  = this.#nodes.root.querySelector('#import-file')
-			import_file.form  = import_file.root.querySelector('#import-file-form')
+			import_file.form  = import_file.root
             import_file.input = import_file.root.querySelector('#import-file-input')
             
             import_file.path = (() => {
@@ -253,16 +245,14 @@ module.exports = class Product_Manager {
 
 			return model_select
 		})()
-		this.#nodes.action_select      = (() => {
+		this.#nodes.action_buttons      = (() => {
 			// Action Selector
-			const action_select = {}
+			const action_buttons = {}
 
-			action_select.root = this.#nodes.root.querySelector('#action-select')
-
-			const buttons = action_select.root.querySelectorAll('.action-button')
+			const buttons = this.#nodes.root.querySelectorAll('.action-button')
 
 			for(const button of buttons) {
-				action_select[button.dataset.action] = button
+				action_buttons[button.dataset.action] = button
 
 				const handle = e => {
 					e && e.preventDefault()
@@ -274,7 +264,7 @@ module.exports = class Product_Manager {
 				button.addEventListener('click', handle)
 			}
 
-			return action_select
+			return action_buttons
 		})()
 		this.#nodes.preview            = (() => {
 			// Preview
@@ -284,33 +274,11 @@ module.exports = class Product_Manager {
 
 			return preview
 		})()
-		this.#nodes.confirm_select     = (() => {
-			// Confirmation / Reset Buttons
-			const confirm_select = {}
-
-			confirm_select.root = this.#nodes.root.querySelector('#confirm-select')
-
-			const buttons = confirm_select.root.querySelectorAll('.confirm-button')
-
-			for(const button of buttons) {
-				confirm_select[button.dataset.action] = button
-
-				const handle = e => {
-					e && e.preventDefault()
-
-					this.confirm = button.dataset.action
-				}
-
-				button.addEventListener('click', handle)
-			}
-
-			return confirm_select
-		})()
 		this.#nodes.progress           = (() => {
 			// Progress Indicator
 			const progress = {}
 
-			progress.root = this.#nodes.confirm_select.root.querySelector('#progress')
+			progress.root = this.#nodes.root.querySelector('#progress')
 
 			progress.indicator = progress.root.querySelector('#progress-indicator')
 
@@ -331,7 +299,12 @@ module.exports = class Product_Manager {
 			mongoose.connect = () => {
 				const server_url = `mongodb://localhost/wwms_product_manager`
 
-				connect.call(mongoose, server_url, { useNewUrlParser: true, useUnifiedTopology: true })
+				connect.call(mongoose, server_url, { 
+					useNewUrlParser: true, 
+					useUnifiedTopology: true,
+				    useFindAndModify: false,
+				    useCreateIndex: true
+				})
 
 				return new Promise(resolve => this.#mongoose.connection.once('open', resolve))
 			}
@@ -417,10 +390,14 @@ module.exports = class Product_Manager {
 			const is_change = action !== this.#action
 			const previous = this.#action
 
-			if(is_change && this.#actions[action].mode === 'Toggle') {
+			if(is_change && previous === 'Import') {
+				this.#nodes.import_file.root.setAttribute('hidden', '')
+				this.reset_import()
+			}
 
-				if(this.#action) this.#nodes.action_select[this.#action].removeAttribute('active')
-				this.#nodes.action_select[action].setAttribute('active', '')
+			if(is_change && this.#actions[action].mode === 'Toggle') {
+				if(this.#action) this.#nodes.action_buttons[this.#action].removeAttribute('active')
+				this.#nodes.action_buttons[action].setAttribute('active', '')
 				this.#action = action
 			}
 
@@ -460,8 +437,6 @@ module.exports = class Product_Manager {
 	}
 
 	reset_preview() {
-		this.#nodes.preview.root.setAttribute('hidden', '')
-		this.#nodes.confirm_select.root.setAttribute('hidden', '')
 		this.#nodes.preview.root.innerHTML = ''
 	}
 
@@ -581,9 +556,6 @@ module.exports = class Product_Manager {
 		for(let index in this.#data) rows.push(insert_row(this.#data[index]))
 
 		await Promise.all(rows)
-
-		this.#nodes.preview.root.removeAttribute('hidden')
-		this.#nodes.confirm_select.root.removeAttribute('hidden')
 	}
 
 	process_data() {
