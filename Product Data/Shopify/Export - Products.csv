@@ -24,3 +24,13 @@ pure-castile-soap,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Produ
     `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
         encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
     }`)}",1,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} 
+bubble-putty,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Bubble Putty,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} ,,${ (models.Blend.Description ? models.Blend.Description : (models.Blend.Subtitle_1 ? models.Blend.Subtitle_1 + '. ' + (models.Blend.Subtitle_2 ? models.Blend.Subtitle_2 + '.' : '') : '')) },Wild Woman Medicine Show,,product,,,"Line: ${models.Blend.Line}, Blend: ${models.Blend.Title}, Product: ${models.Product.Title}",true,,Size,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",1,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} 
+bubble-bath,"${ `${models.Blend.Line}-${models.Blend.Title}-${models.Product.Title}`.toLowerCase().replace(/\s+/g, '-') }",Bubble Bath,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} ,,${ (models.Blend.Description ? models.Blend.Description : (models.Blend.Subtitle_1 ? models.Blend.Subtitle_1 + '. ' + (models.Blend.Subtitle_2 ? models.Blend.Subtitle_2 + '.' : '') : '')) },Wild Woman Medicine Show,,product,,,"Line: ${models.Blend.Line}, Blend: ${models.Blend.Title}, Product: ${models.Product.Title}",true,,Size,,,"${( models.Blend.Line === 'Vintage' ? 
+    'https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/Coming_Soon.png' : 
+    `https://raw.githubusercontent.com/Wild-Woman-Medicine-Show/WWMS/main/Product%20Images/${
+        encodeURIComponent(`WWMS - ${models.Product.Title} - ${models.Variant['Option1 Value']} - ${models.Blend.Line} - ${models.Blend.Title}.png`)
+    }`)}",1,,,${models.Blend.Line} - ${models.Blend.Title} - ${models.Product.Title} 
