@@ -12,8 +12,8 @@ function is_folder(folder) {
 }
 
 function generate_file_name() {
-	var blend = globals.template.variables.getByName('Title').pageItems[0].contents.replace('/',' ')
-	var line = globals.template.variables.getByName('Line').pageItems[0].contents
+	var blend = encodeURIComponent(globals.template.variables.getByName('Title').pageItems[0].contents.replace('/',' '))
+	var line = encodeURIComponent(globals.template.variables.getByName('Line').pageItems[0].contents)
 	return globals.template_name.replace(line, line + ' - ' + blend)
 }
 
