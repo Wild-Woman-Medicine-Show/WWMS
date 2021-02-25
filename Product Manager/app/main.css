@@ -9,15 +9,15 @@
 	--bg-color-grey-08: rgba( 80, 80, 80,1);
 	--bg-color-grey-09: rgba( 90, 90, 90,1);
 	--bg-color-grey-10: rgba( 0, 0, 0,0.25);*/
-	--bg-color-grey-01: rgba(75,75,75,0.1);
-	--bg-color-grey-02: rgba(75,75,75,0.2);
-	--bg-color-grey-03: rgba(75,75,75,0.3);
-	--bg-color-grey-04: rgba(75,75,75,0.4);
-	--bg-color-grey-05: rgba(75,75,75,0.5);
-	--bg-color-grey-06: rgba(75,75,75,0.6);
-	--bg-color-grey-07: rgba(75,75,75,0.7);
-	--bg-color-grey-08: rgba(75,75,75,0.8);
-	--bg-color-grey-09: rgba(75,75,75,0.9);
+	--bg-color-grey-01: rgba(100,100,100,0.1);
+	--bg-color-grey-02: rgba(100,100,100,0.2);
+	--bg-color-grey-03: rgba(100,100,100,0.3);
+	--bg-color-grey-04: rgba(100,100,100,0.4);
+	--bg-color-grey-05: rgba(100,100,100,0.5);
+	--bg-color-grey-06: rgba(100,100,100,0.6);
+	--bg-color-grey-07: rgba(100,100,100,0.7);
+	--bg-color-grey-08: rgba(100,100,100,0.8);
+	--bg-color-grey-09: rgba(100,100,100,0.9);
 	--bg-color-grey-10: rgba( 0, 0, 0,0.25);
 	--bg-color-red-01: rgba(255,25,0,0.2);
 	--bg-color-red-02: rgba(255,25,0,0.4);
@@ -174,9 +174,7 @@ td {
 .flex-spacer {
 	flex: 0 0 8px;
 }
-#import-file, #search-form {
-	flex: 1 0 auto;
-}
+
 .button-set, #import-file, #search-form {
 	display: flex;
 	justify-content: flex-end;
@@ -184,14 +182,23 @@ td {
 	padding: 4px 2px;
 	background-color: var(--bg-color-grey-04);
 }
+.button-set {
+	flex: 0 0 auto;
+}
+#import-file, #search-form {
+	flex: 1 0 auto;
+}
 .button-set button, #import-file-path, #import-file-open, #search-input, #search-form button {
+	background: transparent;
 	min-width: 80px;
 	flex: 0 0 auto;
 	margin-left: 2px;
 	margin-right: 2px;
 }
+.button-set button[active] {
+	background: var(--bg-color-grey-02);
+}
 #bottom-action-buttons {
-	background-color: transparent;
 	padding: 0;
 	margin-right: -2px;
 }
@@ -215,10 +222,10 @@ td {
 	padding: 0;
 }
 #preview tr:nth-child(odd) {
-	background: var(--bg-color-grey-02);
+	background: var(--bg-color-grey-03);
 }
 #preview tr:nth-child(even) {
-	background: var(--bg-color-grey-01);
+	background: var(--bg-color-grey-02);
 }
 #preview td {
 }
