@@ -12,23 +12,36 @@ function is_folder(folder) {
 }
 
 function generate_file_name() {
-	var blend = encodeURIComponent(globals.template.variables.getByName('Title').pageItems[0].contents.replace('/',' '))
-	var line = encodeURIComponent(globals.template.variables.getByName('Line').pageItems[0].contents)
-	return globals.template_name.replace(line, line + ' - ' + blend)
+	if(globals.template.variables.getByName('Title').pageItems.length) {
+		var blend = encodeURIComponent(globals.template.variables.getByName('Title').pageItems[0].contents.replace('/',' '))
+		var line = encodeURIComponent(globals.template.variables.getByName('Line').pageItems[0].contents)
+		return globals.template_name.replace(line, line + ' - ' + blend)
+	} else {
+		return globals.template_name
+	}
 }
 
 function export_template() {
-	var output_eps_target = new File(generate_file_name().replace('Templates', 'Labels').replace(".ai", '.eps'))
+	var file_name = generate_file_name()
+
+	var output_eps_target = new File(file_name.replace('Templates', 'Labels').replace(".ai", '.eps'))
 	var output_eps_folder = new Folder(output_eps_target.path)
 	if(!output_eps_folder.exists) output_eps_folder.create()
 
-	var output_png_target = new File(generate_file_name().replace('Templates', 'Images').replace(".ai", '.png'))
+	var output_png_target = new File(file_name.replace('Templates', 'Images').replace(".ai", '.png'))
 	var output_png_folder = new Folder(output_png_target.path) 
 	if(!output_png_folder.exists) output_png_folder.create()
 
 	globals.cutline.hidden = true
 
 	globals.template.exportFile(output_png_target, ExportType.PNG24)
+
+	var png = new File((function(parts){
+		parts[parts.length - 1] = decodeURIComponent(parts[parts.length - 1]).replace(/ /g, '-')
+		return parts.join('/')
+	})(file_name.split('/')).replace('Templates', 'Images').replace(".ai", '.png'))
+
+	png.rename(file_name.replace('Templates', 'Images').replace(".ai", '.png'))
 
 	globals.cutline.hidden = false
 
